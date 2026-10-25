@@ -69,7 +69,7 @@ export default function HelpDeskPage() {
 
           <div className="editorial-grid-2" style={{ gap: "32px", marginBottom: "64px" }}>
             {helpDeskTopicsData.map((topic, index) => (
-              <div key={topic.id} className="editorial-card" style={{ padding: "32px" }}>
+              <div key={topic.id} id={topic.id} className="editorial-card" style={{ padding: "clamp(20px, 4vw, 32px)", scrollMarginTop: "130px" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "16px" }}>
                   <div
                     style={{

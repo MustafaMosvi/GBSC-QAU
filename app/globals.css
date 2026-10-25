@@ -2808,6 +2808,244 @@ p:last-child {
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
 
+/* Featured Announcement Banner */
+.featured-announcement-section {
+  padding-bottom: 40px;
+  padding-top: 56px;
+}
+
+.featured-announcement-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: clamp(24px, 4vw, 36px);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 24px;
+  align-items: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.featured-announcement-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  background: var(--terracotta-pale);
+  color: var(--terracotta);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.featured-announcement-content {
+  min-width: 0;
+}
+
+.featured-announcement-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.featured-announcement-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.76rem;
+  color: var(--muted);
+  font-family: var(--mono);
+}
+
+.featured-announcement-title {
+  margin: 0 0 6px;
+  font-size: 1.28rem;
+  line-height: 1.3;
+}
+
+.featured-announcement-desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  max-width: 62ch;
+}
+
+.featured-announcement-action {
+  flex-shrink: 0;
+}
+
+/* History Feature (Homepage) */
+.history-feature-narrative {
+  position: sticky;
+  top: 130px;
+}
+
+.history-feature-title {
+  font-size: clamp(2rem, 3.6vw, 3.2rem);
+  line-height: 1.16;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  scroll-margin-top: 130px;
+}
+
+.history-feature-lead {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--charcoal);
+  margin-bottom: 18px;
+}
+
+.history-feature-body {
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+
+.history-feature-cta {
+  margin-bottom: 0;
+}
+
+.timeline-footer-link {
+  margin-top: 28px;
+  padding-left: 32px;
+}
+
+/* Help Desk Feature (Homepage) */
+.help-desk-title {
+  font-size: clamp(1.85rem, 3.6vw, 3rem);
+  scroll-margin-top: 130px;
+}
+
+.help-desk-header-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.help-desk-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.help-desk-card {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 24px;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: var(--card-bg);
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.help-desk-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--teal);
+  box-shadow: 0 12px 28px rgba(10, 28, 42, 0.08);
+  background: var(--surface);
+}
+
+.help-desk-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: var(--teal-pale);
+  color: var(--teal);
+  display: grid;
+  placeItems: center;
+  margin-bottom: 18px;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+}
+
+.help-desk-card:hover .help-desk-icon-box {
+  background: var(--teal);
+  color: #ffffff;
+  transform: scale(1.06);
+}
+
+.help-desk-card-title {
+  margin: 0 0 10px;
+  font-size: 1.15rem;
+  font-family: var(--display);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+.help-desk-card-desc {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0 0 20px;
+  flex-grow: 1;
+}
+
+.help-desk-card-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.help-desk-liaison-badge {
+  font-size: 0.72rem;
+  color: var(--terracotta);
+  font-family: var(--mono);
+  background: rgba(184, 80, 56, 0.08);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.help-desk-action-arrow {
+  color: var(--teal);
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.help-desk-card:hover .help-desk-action-arrow {
+  transform: translate(3px, -3px);
+  color: var(--terracotta);
+}
+
+.help-desk-disclaimer {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--terracotta);
+  border-radius: var(--radius-sm);
+  padding: 18px 22px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.help-desk-disclaimer-icon {
+  color: var(--terracotta);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.help-desk-disclaimer-text {
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
 /* Accordion FAQs */
 .faq-accordion {
   border-top: 1px solid var(--line);
@@ -3127,6 +3365,13 @@ p:last-child {
   .editorial-grid-3 {
     grid-template-columns: repeat(2, 1fr);
   }
+  .editorial-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .help-desk-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
   .emblem-symbol-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -3169,6 +3414,11 @@ p:last-child {
     gap: 16px;
   }
   .xhero-coord-sep { display: none; }
+  .history-feature-narrative {
+    position: static;
+    top: auto;
+    margin-bottom: 36px;
+  }
 }
 
 
@@ -3209,10 +3459,41 @@ p:last-child {
     grid-template-columns: 1fr;
   }
   .editorial-grid-4 {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .help-desk-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  .history-feature-narrative {
+    position: static;
+    top: auto;
+    margin-bottom: 32px;
+  }
+  .history-feature-title {
+    font-size: clamp(1.65rem, 5vw, 2.2rem);
   }
   .emblem-symbol-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Featured Announcement */
+  .featured-announcement-card {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 24px 20px;
+    align-items: flex-start;
+  }
+  .featured-announcement-section {
+    padding-bottom: 28px;
+    padding-top: 36px;
+  }
+  .featured-announcement-action {
+    width: 100%;
+  }
+  .featured-announcement-action .button {
+    width: 100%;
+    justify-content: center;
   }
 
   /* Section header row */
@@ -3363,6 +3644,22 @@ p:last-child {
   .editorial-grid-3,
   .editorial-grid-4 {
     grid-template-columns: 1fr;
+  }
+
+  /* Help desk grid single column */
+  .help-desk-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .help-desk-card {
+    padding: 22px 18px;
+  }
+  .help-desk-disclaimer {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+  .help-desk-disclaimer-text {
+    font-size: 0.8rem;
   }
 
   /* Emblem symbol grid */
@@ -3561,6 +3858,83 @@ p:last-child {
   }
   .page-hero-banner h1 {
     font-size: clamp(1.8rem, 8vw, 3rem) !important;
+  }
+
+  /* Featured Announcement */
+  .featured-announcement-card {
+    padding: 20px 16px;
+    gap: 14px;
+  }
+  .featured-announcement-icon {
+    width: 44px;
+    height: 44px;
+  }
+  .featured-announcement-title {
+    font-size: 1.15rem;
+    line-height: 1.35;
+  }
+  .featured-announcement-desc {
+    font-size: 0.85rem;
+  }
+
+  /* History Feature */
+  .history-feature-title {
+    font-size: clamp(1.45rem, 6.5vw, 1.85rem);
+    margin-bottom: 14px;
+  }
+  .history-feature-lead {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+  .history-feature-body {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin-bottom: 22px;
+  }
+  .history-feature-cta .button {
+    width: 100%;
+    justify-content: center;
+  }
+  .timeline-list {
+    margin-left: 4px;
+    padding-left: 20px;
+  }
+  .timeline-dot {
+    left: -27px;
+    width: 12px;
+    height: 12px;
+    top: 5px;
+  }
+  .timeline-footer-link {
+    padding-left: 20px;
+  }
+
+  /* Help Desk Feature */
+  .help-desk-title {
+    font-size: clamp(1.45rem, 6.5vw, 1.85rem);
+  }
+  .help-desk-header-link {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .help-desk-card {
+    padding: 18px 16px;
+  }
+  .help-desk-card-title {
+    font-size: 1.05rem;
+  }
+  .help-desk-card-desc {
+    font-size: 0.84rem;
+    margin-bottom: 16px;
+  }
+  .help-desk-disclaimer {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+  .help-desk-disclaimer-text {
+    font-size: 0.78rem;
+    line-height: 1.55;
   }
 
   /* Ticker bar */

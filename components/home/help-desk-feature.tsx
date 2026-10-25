@@ -6,73 +6,57 @@ export function HelpDeskFeature() {
   return (
     <section className="section-padding section-paper" aria-labelledby="help-desk-heading">
       <div className="wrap">
-        <div className="section-header-row">
+        <div className="section-header-row help-desk-header-row">
           <div className="section-header-copy">
             <p className="eyebrow">
               <span className="archive-tag tag-teal">STUDENT SUPPORT DESK</span>
               <span>·</span>
               <span>Peer Mentorship</span>
             </p>
-            <h2 id="help-desk-heading">
+            <h2 id="help-desk-heading" className="help-desk-title">
               A place to start when you need a hand.
             </h2>
             <p className="section-header-sub">
               {helpDeskGuide.intro}
             </p>
           </div>
-          <Link href="/help-desk" className="text-link">
+          <Link href="/help-desk" className="text-link help-desk-header-link">
             Open Help Desk Guide <ArrowUpRight size={16} />
           </Link>
         </div>
 
         {/* 4 Topic Cards */}
-        <div className="editorial-grid-4" style={{ marginBottom: "32px" }}>
+        <div className="help-desk-grid">
           {helpDeskTopicsData.map((topic, index) => (
-            <div key={topic.id} className="editorial-card">
-              <div
-                style={{
-                  width: "42px",
-                  height: "42px",
-                  borderRadius: "var(--radius-sm)",
-                  background: "var(--teal-pale)",
-                  color: "var(--teal)",
-                  display: "grid",
-                  placeItems: "center",
-                  marginBottom: "16px",
-                }}
-                aria-hidden="true"
-              >
-                {index === 0 && <Compass size={20} />}
-                {index === 1 && <Home size={20} />}
-                {index === 2 && <BookOpen size={20} />}
-                {index === 3 && <HelpCircle size={20} />}
+            <Link
+              key={topic.id}
+              href={`/help-desk#${topic.id}`}
+              className="editorial-card help-desk-card"
+            >
+              <div className="help-desk-icon-box" aria-hidden="true">
+                {index === 0 && <Compass size={22} />}
+                {index === 1 && <Home size={22} />}
+                {index === 2 && <BookOpen size={22} />}
+                {index === 3 && <HelpCircle size={22} />}
               </div>
-              <h4 style={{ margin: "0 0 8px", fontSize: "1.15rem" }}>{topic.title}</h4>
-              <p style={{ fontSize: "0.86rem", color: "var(--muted)", margin: "0 0 16px" }}>
-                {topic.description}
-              </p>
-              <div style={{ marginTop: "auto", fontSize: "0.74rem", color: "var(--terracotta)", fontFamily: "var(--mono)" }}>
-                Liaison: {topic.universityOffice?.split(",")[0]}
+              <h3 className="help-desk-card-title">{topic.title}</h3>
+              <p className="help-desk-card-desc">{topic.description}</p>
+              <div className="help-desk-card-footer">
+                <span className="help-desk-liaison-badge">
+                  Liaison: {topic.universityOffice?.split(",")[0]}
+                </span>
+                <span className="help-desk-action-arrow" aria-hidden="true">
+                  <ArrowUpRight size={15} />
+                </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
         {/* Disclaimer Notice */}
-        <div
-          style={{
-            background: "var(--surface)",
-            border: "1px solid var(--line)",
-            borderLeft: "4px solid var(--terracotta)",
-            borderRadius: "var(--radius-sm)",
-            padding: "16px 20px",
-            display: "flex",
-            alignItems: "flex-start",
-            gap: "14px",
-          }}
-        >
-          <ShieldAlert size={20} style={{ color: "var(--terracotta)", flexShrink: 0, marginTop: "2px" }} />
-          <div style={{ fontSize: "0.82rem", color: "var(--muted)", lineHeight: 1.6 }}>
+        <div className="help-desk-disclaimer">
+          <ShieldAlert size={20} className="help-desk-disclaimer-icon" />
+          <div className="help-desk-disclaimer-text">
             <strong>Institutional Scope Notice: </strong>
             GBSC-QAU Help Desk volunteers provide informational navigation and collegiate mentoring. We do not
             exercise administrative authority, resolve fee sanctions, or provide psychiatric therapy.
