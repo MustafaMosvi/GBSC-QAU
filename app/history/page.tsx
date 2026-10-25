@@ -123,6 +123,7 @@ export default function HistoryPage() {
 
             {/* Archive Contribution Note */}
             <div
+              className="history-archive-box"
               style={{
                 marginTop: "64px",
                 padding: "24px 28px",
