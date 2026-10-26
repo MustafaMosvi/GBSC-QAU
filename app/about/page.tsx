@@ -169,7 +169,7 @@ export default function AboutPage() {
               marginBottom: "64px",
             }}
           >
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "36px", alignItems: "center" }}>
+            <div className="emblem-layout-box" style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "36px", alignItems: "center" }}>
               <div style={{ textAlign: "center" }}>
                 <Image
                   src="/images/branding/gbsc-logo.png"
