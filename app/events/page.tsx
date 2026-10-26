@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ArrowUpRight, Calendar, MapPin, Clock, BookOpen, Compass, Award } from "lucide-react";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { programCategories, eventsData } from "@/content/events";
+import { EventPoster } from "@/components/events/event-poster";
 
 export const metadata: Metadata = {
   title: "Events & Programs Directory",
@@ -47,7 +48,7 @@ export default function EventsPage() {
               <h2>Specialized Academic & Cultural Areas</h2>
               <p className="section-header-sub">
                 Browse our distinct program areas or visit dedicated spotlights for study circles,
-                workshops, cultural festivals, and book fairs.
+                the Literary Society, seminars, cultural festivals, and book fairs.
               </p>
             </div>
           </div>
@@ -61,7 +62,7 @@ export default function EventsPage() {
                     alt={item.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    style={{ objectFit: "cover" }}
+                    style={{ objectFit: item.imageFit ?? "cover" }}
                   />
                   <div
                     style={{
@@ -118,7 +119,8 @@ export default function EventsPage() {
           {confirmedUpcoming.length > 0 ? (
             <div className="editorial-grid-3">
               {confirmedUpcoming.map((event) => (
-                <article key={event.id} className="editorial-card">
+                <article key={event.id} id={event.slug} className="editorial-card">
+                  <EventPoster event={event} />
                   <div className="editorial-card-index">
                     <span className="archive-tag tag-teal">{event.category}</span>
                     <span style={{ color: "var(--terracotta)", fontWeight: 700, fontSize: "0.72rem" }}>
@@ -190,7 +192,7 @@ export default function EventsPage() {
                       alt={event.title}
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
-                      style={{ objectFit: "cover" }}
+                      style={{ objectFit: event.imageFit ?? "cover" }}
                     />
                     <div
                       style={{
@@ -214,6 +216,11 @@ export default function EventsPage() {
                   <p style={{ margin: "0 0 14px", fontSize: "0.85rem", color: "var(--muted)" }}>
                     {event.description}
                   </p>
+                  {event.date && (
+                    <p style={{ margin: "0 0 8px", fontSize: "0.78rem", color: "var(--muted)" }}>
+                      {event.date}{event.time ? ` · ${event.time}` : ""}
+                    </p>
+                  )}
                   <span style={{ fontSize: "0.78rem", color: "var(--muted)", fontFamily: "var(--mono)" }}>
                     Location: {event.venue || "Quaid-i-Azam University"}
                   </span>

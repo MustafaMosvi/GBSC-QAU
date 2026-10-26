@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { programCategories } from "@/content/events";
 
@@ -34,6 +35,17 @@ export function ProgramsGrid() {
                 <span className="archive-tag tag-teal">{item.title}</span>
               </div>
               <h3>{item.title}</h3>
+              {index < 2 && (
+                <div style={{ position: "relative", height: "180px", width: "100%", marginBottom: "16px", background: "var(--paper)", borderRadius: "var(--radius-sm)", overflow: "hidden" }}>
+                  <Image
+                    src={item.image}
+                    alt={item.title === "Literary Society" ? "Gilgit-Baltistan Literary Society emblem" : "Indus Treaty Suspension & Melting Ice study-circle poster"}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    style={{ objectFit: item.imageFit ?? "cover" }}
+                  />
+                </div>
+              )}
               <p>{item.summary}</p>
               <div className="editorial-card-footer">
                 <span>View Program Details</span>

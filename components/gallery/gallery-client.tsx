@@ -17,6 +17,7 @@ export function GalleryClient({ items }: GalleryClientProps) {
     "All",
     "Campus Life",
     "Study Circles",
+    "Literary Society",
     "Cultural Gatherings",
     "Heritage & Landscapes",
     "Book Fairs",
@@ -143,7 +144,7 @@ export function GalleryClient({ items }: GalleryClientProps) {
                   alt={item.alt}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  style={{ objectFit: "cover", transition: "transform var(--transition-smooth)" }}
+                  style={{ objectFit: item.imageFit ?? "cover", transition: "transform var(--transition-smooth)" }}
                 />
                 <div
                   style={{

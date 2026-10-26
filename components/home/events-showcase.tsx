@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, Calendar, MapPin, Clock } from "lucide-react";
 import { eventsData } from "@/content/events";
+import { EventPoster } from "@/components/events/event-poster";
 
 export function EventsShowcase() {
   const confirmedUpcoming = eventsData.filter((e) => e.status === "confirmed");
@@ -34,6 +35,7 @@ export function EventsShowcase() {
           <div className="editorial-grid-3">
             {confirmedUpcoming.map((event) => (
               <article key={event.id} className="editorial-card">
+                <EventPoster event={event} />
                 <div className="editorial-card-index">
                   <span className="archive-tag tag-teal">{event.category}</span>
                   <span style={{ color: "var(--muted)", fontSize: "0.74rem" }}>CONFIRMED</span>
@@ -92,7 +94,7 @@ export function EventsShowcase() {
                           alt={event.title}
                           fill
                           sizes="(max-width: 768px) 100vw, 33vw"
-                          style={{ objectFit: "cover" }}
+                          style={{ objectFit: event.imageFit ?? "cover" }}
                         />
                         <div
                           style={{

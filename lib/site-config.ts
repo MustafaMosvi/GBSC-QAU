@@ -57,6 +57,7 @@ export const siteConfig = {
 
   programLinks: [
     { label: "Study Circles", href: "/events/study-circles" },
+    { label: "Literary Society", href: "/events/literary-society" },
     { label: "Workshops & Seminars", href: "/events/workshops-seminars" },
     { label: "Cultural Gatherings", href: "/events/cultural" },
     { label: "Campus Book Fairs", href: "/events/book-fairs" },

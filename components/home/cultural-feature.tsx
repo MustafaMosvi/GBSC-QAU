@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, Music, Globe, BookMarked } from "lucide-react";
+import { poetryEvent } from "@/content/cultural-events";
 
 export function CulturalFeature() {
   const languages = [
@@ -31,9 +32,7 @@ export function CulturalFeature() {
               side by side for centuries amidst the high mountain passes.
             </p>
             <p style={{ color: "var(--muted)", lineHeight: 1.65, marginBottom: "28px" }}>
-              The council’s cultural initiatives celebrate this pluralism with dignity. From annual musical
-              nights featuring the resonant timbre of the rubab and daf, to multilingual poetry recitals and
-              traditional craft documentation, we ensure that living heritage remains an active pulse of campus life.
+              {poetryEvent.summary}
             </p>
 
             {/* Language Badges Grid */}
@@ -65,41 +64,47 @@ export function CulturalFeature() {
             <div
               style={{
                 position: "relative",
+                background: "var(--paper)",
                 borderRadius: "var(--radius-md)",
                 overflow: "hidden",
                 border: "1px solid var(--line)",
                 boxShadow: "0 16px 36px rgba(0, 0, 0, 0.08)",
               }}
             >
-              <Image
-                src="/images/events/cultural-night.jpg"
-                alt="Gilgit-Baltistan student cultural evening at QAU with traditional rubab performance"
-                width={720}
-                height={460}
-                style={{ width: "100%", height: "auto", display: "block" }}
-              />
+              <a
+                href={poetryEvent.image}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View the full Bazm-e-Sukhan poster (opens in a new tab)"
+                style={{ position: "relative", display: "block", aspectRatio: "720 / 460" }}
+              >
+                <Image
+                  src={poetryEvent.image}
+                  alt={poetryEvent.imageAlt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  style={{ objectFit: "contain" }}
+                />
+              </a>
               <div
                 style={{
-                  position: "absolute",
-                  bottom: "0",
-                  left: "0",
-                  right: "0",
+                  position: "relative",
                   padding: "20px",
-                  background: "linear-gradient(to top, rgba(6, 18, 29, 0.95), transparent)",
+                  background: "var(--ink)",
                   color: "var(--surface)",
                 }}
               >
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", justifyContent: "space-between", alignItems: "flex-end" }}>
                   <div>
                     <span className="archive-tag tag-terracotta" style={{ marginBottom: "6px" }}>
-                      MUSICAL ARCHIVE
+                      POETRY ARCHIVE
                     </span>
                     <h4 style={{ margin: 0, color: "var(--surface)", fontSize: "1.05rem" }}>
-                      Acoustic Harmonies of the Northern Valleys
+                      {poetryEvent.title}
                     </h4>
                   </div>
                   <span style={{ fontSize: "0.75rem", fontFamily: "var(--mono)", color: "#a5b8b0" }}>
-                    QAU Campus Gathering
+                    {poetryEvent.date}
                   </span>
                 </div>
               </div>

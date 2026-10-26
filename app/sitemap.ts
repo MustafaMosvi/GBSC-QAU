@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/about", changeFrequency: "weekly" as const, priority: 0.9 },
     { path: "/events", changeFrequency: "daily" as const, priority: 0.9 },
     { path: "/events/study-circles", changeFrequency: "weekly" as const, priority: 0.8 },
+    { path: "/events/literary-society", changeFrequency: "weekly" as const, priority: 0.8 },
     { path: "/events/workshops-seminars", changeFrequency: "weekly" as const, priority: 0.8 },
     { path: "/events/cultural", changeFrequency: "weekly" as const, priority: 0.8 },
     { path: "/events/book-fairs", changeFrequency: "weekly" as const, priority: 0.8 },

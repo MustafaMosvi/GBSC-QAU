@@ -1,28 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, BookOpen, Sparkles } from "lucide-react";
+import { ArrowUpRight, BookOpen } from "lucide-react";
+import { studyCircleHighlights } from "@/content/study-circles";
 
 export function StudyFeature() {
-  const readingList = [
-    {
-      code: "TRACK // 01",
-      title: "Mountain Historiography & Indigenous Memory",
-      author: "Decolonizing regional accounts across the Karakoram & Himalayas",
-      status: "Archived Discussion",
-    },
-    {
-      code: "TRACK // 02",
-      title: "Cryosphere, Ecology & Mountain Commons",
-      author: "Critical inquiries into water security, glacial shifts, and local adaptation",
-      status: "Archived Discussion",
-    },
-    {
-      code: "TRACK // 03",
-      title: "Multilingual Poetry & South Asian Literary Modernity",
-      author: "Comparative readings in Balti, Shina, Urdu, and Persian classical verses",
-      status: "Archived Discussion",
-    },
-  ];
+  const studyCircle = studyCircleHighlights[0];
 
   return (
     <section className="section-padding study-circle-band" aria-labelledby="study-heading">
@@ -30,49 +12,34 @@ export function StudyFeature() {
         <div className="editorial-grid-2">
           {/* Left Column: Visual & Reading List */}
           <div>
-            <div style={{ position: "relative", borderRadius: "var(--radius-md)", overflow: "hidden", marginBottom: "24px", border: "1px solid var(--line)" }}>
+            <div style={{ position: "relative", aspectRatio: "700 / 440", borderRadius: "var(--radius-md)", overflow: "hidden", marginBottom: "24px", border: "1px solid var(--line)", background: "var(--paper)" }}>
               <Image
-                src="/images/events/study-circle.jpg"
-                alt="University students engaged in a serious intellectual study circle discussion"
-                width={700}
-                height={440}
-                style={{ width: "100%", height: "auto", display: "block" }}
+                src={studyCircle.image}
+                alt={studyCircle.imageAlt}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                style={{ objectFit: "contain" }}
               />
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: "12px",
-                  left: "12px",
-                  background: "rgba(6, 18, 29, 0.88)",
-                  padding: "6px 12px",
-                  borderRadius: "var(--radius-sm)",
-                  color: "var(--surface)",
-                  fontFamily: "var(--mono)",
-                  fontSize: "0.72rem",
-                }}
-              >
-                GBSC ACADEMIC FORUM // SEMINAR ROOM ARCHIVE
-              </div>
             </div>
 
             {/* Reading List Card */}
             <div className="study-reading-list">
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "16px" }}>
                 <span className="eyebrow" style={{ margin: 0 }}>
-                  <BookOpen size={14} /> Curated Reading Themes
+                  <BookOpen size={14} /> Study Circle Highlights
                 </span>
-                <span className="archive-tag tag-dark">STUDENT SEMINAR</span>
+                <span className="archive-tag tag-dark">COUNCIL ARCHIVE</span>
               </div>
 
-              {readingList.map((item, idx) => (
-                <div key={idx} className="study-reading-item">
-                  <span className="study-reading-code">{item.code}</span>
+              {studyCircleHighlights.map((item, idx) => (
+                <div key={item.id} className="study-reading-item">
+                  <span className="study-reading-code">0{idx + 1}</span>
                   <div>
                     <h4>{item.title}</h4>
-                    <p>{item.author}</p>
+                    <p>{item.date}</p>
                   </div>
                   <span style={{ fontSize: "0.75rem", color: "var(--teal)", fontFamily: "var(--mono)" }}>
-                    {item.status}
+                    ARCHIVE
                   </span>
                 </div>
               ))}
@@ -90,15 +57,10 @@ export function StudyFeature() {
               Curiosity grows when it is shared without pretense.
             </h2>
             <p style={{ fontSize: "1.08rem", lineHeight: 1.7, color: "var(--charcoal)", marginBottom: "18px" }}>
-              In an era dominated by rapid digital soundbites, the GBSC Study Circle offers an unhurried,
-              deliberate space for university students to sit together, read deeply, and interrogate ideas
-              that shape our world.
+              {studyCircle.summary}
             </p>
             <p style={{ color: "var(--muted)", lineHeight: 1.65, marginBottom: "32px" }}>
-              Sessions are facilitated by students, for students. We read across disciplines—from mountain
-              environmental history and political philosophy to multilingual poetry and scientific ethics.
-              No pre-existing expertise is required, only the willingness to ask genuine questions and listen
-              attentively to peers.
+              {studyCircle.date} · {studyCircle.time} · {studyCircle.venue}
             </p>
 
             <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>

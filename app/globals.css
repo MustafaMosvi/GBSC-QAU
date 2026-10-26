@@ -1025,6 +1025,74 @@ p:last-child {
   z-index: 0;
 }
 
+.xhero-photo-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.xhero-photo-slide--active {
+  opacity: 1;
+}
+
+.xhero-photo-slide--mountains img {
+  object-position: center 40%;
+}
+
+.xhero-photo-slide--meeting img {
+  object-position: right center;
+}
+
+.xhero-slideshow-toolbar {
+  margin-top: 24px;
+}
+
+.xhero-slide-caption {
+  margin: 0 0 10px;
+  min-height: 2.8em;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #d2e6e1;
+}
+
+.xhero-slide-caption a {
+  text-decoration-color: rgba(210,230,225,0.4);
+  text-underline-offset: 4px;
+}
+
+.xhero-slide-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.xhero-slide-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(152,186,188,0.4);
+  border-radius: var(--radius-sm);
+  background: rgba(4,13,20,0.75);
+  color: #e1f2ef;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.xhero-slide-button:hover,
+.xhero-slide-button[aria-pressed="true"] {
+  background: var(--teal);
+  border-color: #98babc;
+}
+
+.xhero-slide-button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
 .xhero-photo-mask {
   position: absolute;
   inset: 0;
@@ -3390,6 +3458,10 @@ p:last-child {
 
 /* ── 900px: Hero tablet adjustment ───────────────────── */
 @media (max-width: 900px) {
+  .xhero-photo-slide--meeting img {
+    object-position: center 24%;
+  }
+
   .xhero-stage {
     padding-left: 44px;
     padding-right: 20px;

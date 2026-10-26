@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, Calendar, MapPin } from "lucide-react";
+import { ArrowUpRight, Calendar, MapPin, ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import { eventsData } from "@/content/events";
+import { heroSlides, heroSlideIntervalMs } from "@/content/hero";
 
 /* ─── Animated Contour Canvas ───────────────────────────────────────── */
 function ContourCanvas() {
@@ -103,6 +104,13 @@ function AltitudeTicker() {
 /* ─── Main Hero ─────────────────────────────────────────────────────── */
 export function HeroSection() {
   const [ready, setReady] = useState(false);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [loadedSlides, setLoadedSlides] = useState<number[]>([0]);
+  const [isPaused, setIsPaused] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
+  const [hasFocus, setHasFocus] = useState(false);
+  const [isPageVisible, setIsPageVisible] = useState(true);
+  const currentSlide = heroSlides[activeSlide];
   const upcomingEvents = eventsData.filter((e) => e.status === "confirmed").slice(0, 2);
 
   useEffect(() => {
@@ -110,19 +118,66 @@ export function HeroSection() {
     return () => clearTimeout(id);
   }, []);
 
+  useEffect(() => {
+    const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updateMotionPreference = () => setIsPaused(motionPreference.matches);
+    const updateVisibility = () => setIsPageVisible(!document.hidden);
+    updateMotionPreference();
+    updateVisibility();
+    motionPreference.addEventListener("change", updateMotionPreference);
+    document.addEventListener("visibilitychange", updateVisibility);
+    return () => {
+      motionPreference.removeEventListener("change", updateMotionPreference);
+      document.removeEventListener("visibilitychange", updateVisibility);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isPaused || isHovered || hasFocus || !isPageVisible || loadedSlides.length < heroSlides.length) return;
+    const interval = setInterval(() => {
+      setActiveSlide((current) => (current + 1) % heroSlides.length);
+    }, heroSlideIntervalMs);
+    return () => clearInterval(interval);
+  }, [activeSlide, isPaused, isHovered, hasFocus, isPageVisible, loadedSlides.length]);
+
+  const selectSlide = (index: number) => {
+    if (!loadedSlides.includes(index)) return;
+    setActiveSlide(index);
+    setIsPaused(true);
+  };
+
   return (
-    <section className="xhero" aria-labelledby="hero-title">
+    <section
+      className="xhero"
+      aria-labelledby="hero-title"
+      aria-roledescription="carousel"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onFocusCapture={() => setHasFocus(true)}
+      onBlurCapture={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setHasFocus(false);
+      }}
+    >
 
       {/* ── Layer 0: full-bleed photo ───────────────────────────────── */}
       <div className="xhero-photo-layer" aria-hidden="true">
-        <Image
-          src="/images/hero/karakoram-hero.jpg"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          style={{ objectFit: "cover", objectPosition: "center 40%" }}
-        />
+        {heroSlides.map((slide, index) => (
+          <div
+            key={slide.id}
+            className={`xhero-photo-slide xhero-photo-slide--${slide.id}${index === activeSlide ? " xhero-photo-slide--active" : ""}`}
+          >
+            <Image
+              src={slide.src}
+              alt=""
+              fill
+              priority={index === 0}
+              loading={index === 0 ? undefined : "eager"}
+              sizes="100vw"
+              style={{ objectFit: slide.imageFit }}
+              onLoad={() => setLoadedSlides((current) => current.includes(index) ? current : [...current, index])}
+            />
+          </div>
+        ))}
         {/* Deep dark overlay — more intense on left where text lives */}
         <div className="xhero-photo-mask" />
       </div>
@@ -142,12 +197,12 @@ export function HeroSection() {
       </div>
 
       {/* ── Layer 3: Top-right altitude badge ─────────────────────── */}
-      <div className={`xhero-altitude-badge ${ready ? "xhero-in" : ""}`} aria-hidden="true">
+      {activeSlide === 0 && <div className={`xhero-altitude-badge ${ready ? "xhero-in" : ""}`} aria-hidden="true">
         <div className="xhero-alt-label">PEAK ELEVATION</div>
         <div className="xhero-alt-value"><AltitudeTicker /><span>m</span></div>
         <div className="xhero-alt-sub">K2 · Karakoram Range</div>
         <div className="xhero-alt-pulse" />
-      </div>
+      </div>}
 
       {/* ── Layer 4: Main composition ─────────────────────────────── */}
       <div className="xhero-stage">
@@ -178,6 +233,37 @@ export function HeroSection() {
               A student-led community rooted in the peaks of Gilgit-Baltistan,
               building intellectual life and cultural memory at Quaid-i-Azam University.
             </p>
+            <div className="xhero-slideshow-toolbar" role="group" aria-label="Hero slideshow controls">
+              <p className="xhero-slide-caption" aria-live={isPaused ? "polite" : "off"} aria-atomic="true">
+                <a href={currentSlide.src} target="_blank" rel="noopener noreferrer" aria-label={`View full image: ${currentSlide.caption} (opens in a new tab)`}>
+                  {currentSlide.caption}
+                </a>
+              </p>
+              <div className="xhero-slide-controls">
+                <button type="button" className="xhero-slide-button" aria-label="Previous hero image" disabled={loadedSlides.length < heroSlides.length} onClick={() => selectSlide((activeSlide - 1 + heroSlides.length) % heroSlides.length)}>
+                  <ChevronLeft size={18} aria-hidden="true" />
+                </button>
+                {heroSlides.map((slide, index) => (
+                  <button
+                    key={slide.id}
+                    type="button"
+                    className="xhero-slide-button"
+                    aria-label={`Show ${slide.label}`}
+                    aria-pressed={activeSlide === index}
+                    disabled={!loadedSlides.includes(index)}
+                    onClick={() => selectSlide(index)}
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </button>
+                ))}
+                <button type="button" className="xhero-slide-button" aria-label="Next hero image" disabled={loadedSlides.length < heroSlides.length} onClick={() => selectSlide((activeSlide + 1) % heroSlides.length)}>
+                  <ChevronRight size={18} aria-hidden="true" />
+                </button>
+                <button type="button" className="xhero-slide-button" aria-label={isPaused ? "Play hero slideshow" : "Pause hero slideshow"} onClick={() => setIsPaused((current) => !current)}>
+                  {isPaused ? <Play size={16} aria-hidden="true" /> : <Pause size={16} aria-hidden="true" />}
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 

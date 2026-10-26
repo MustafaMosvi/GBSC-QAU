@@ -1,6 +1,42 @@
 import { GalleryItem } from "@/lib/types";
+import { studyCircleHighlights } from "@/content/study-circles";
+import { literarySocietyImages, literarySocietyInitiative } from "@/content/literary-society";
+import { poetryEvent } from "@/content/cultural-events";
 
 export const galleryItemsData: GalleryItem[] = [
+  {
+    id: `gal-${poetryEvent.id}`,
+    title: poetryEvent.title,
+    caption: poetryEvent.summary,
+    category: "Cultural Gatherings",
+    src: poetryEvent.image,
+    alt: poetryEvent.imageAlt,
+    imageFit: poetryEvent.imageFit,
+    location: poetryEvent.venue,
+    date: poetryEvent.date,
+  },
+  ...studyCircleHighlights.map((record): GalleryItem => ({
+    id: `gal-${record.id}`,
+    title: record.title,
+    caption: record.summary,
+    category: "Study Circles",
+    src: record.image,
+    alt: record.imageAlt,
+    imageFit: record.imageFit,
+    location: record.venue,
+    date: record.date,
+  })),
+  ...literarySocietyImages.map((image): GalleryItem => ({
+    id: `gal-${image.id}`,
+    title: image.title,
+    caption: literarySocietyInitiative.summary,
+    category: "Literary Society",
+    src: image.src,
+    alt: image.alt,
+    imageFit: "contain",
+    location: literarySocietyInitiative.venue,
+    date: literarySocietyInitiative.date,
+  })),
   {
     id: "gal-01",
     title: "The Karakoram Ridge at Dawn",
@@ -11,17 +47,6 @@ export const galleryItemsData: GalleryItem[] = [
     alt: "Majestic snow-dusted peaks and winding river valley in the Karakoram range, Gilgit-Baltistan",
     location: "Karakoram Range, Gilgit-Baltistan",
     date: "Landscape Archive",
-  },
-  {
-    id: "gal-02",
-    title: "Undergraduate Study Circle in Session",
-    caption:
-      "Students gathered around the seminar table for an unhurried, critical reading session discussing regional history, philosophy, and political texts.",
-    category: "Study Circles",
-    src: "/images/events/study-circle.jpg",
-    alt: "University students in serious discussion around a library wooden seminar table with books and notes",
-    location: "Campus Seminar Hall, QAU Islamabad",
-    date: "Academic Archive",
   },
   {
     id: "gal-03",

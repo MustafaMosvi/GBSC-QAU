@@ -1,5 +1,6 @@
 export type EventCategory =
   | "Study Circle"
+  | "Literary Society"
   | "Workshop"
   | "Seminar"
   | "Cultural Event"
@@ -16,9 +17,12 @@ export interface EventItem {
   summary: string;
   description: string;
   date?: string;
+  startsAt?: string;
   time?: string;
   venue?: string;
   image?: string;
+  imageAlt?: string;
+  imageFit?: "cover" | "contain";
   status: EventStatus;
   facilitator?: string;
   registrationUrl?: string;
@@ -63,6 +67,7 @@ export type GalleryCategory =
   | "All"
   | "Campus Life"
   | "Study Circles"
+  | "Literary Society"
   | "Cultural Gatherings"
   | "Heritage & Landscapes"
   | "Book Fairs";
@@ -74,6 +79,7 @@ export interface GalleryItem {
   category: GalleryCategory;
   src: string;
   alt: string;
+  imageFit?: "cover" | "contain";
   date?: string;
   location?: string;
   photographer?: string;

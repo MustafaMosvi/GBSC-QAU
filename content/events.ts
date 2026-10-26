@@ -1,4 +1,7 @@
 import { EventItem, EventCategory } from "@/lib/types";
+import { studyCircleHighlights } from "@/content/study-circles";
+import { literarySocietyImages, literarySocietyInitiative } from "@/content/literary-society";
+import { poetryEvent } from "@/content/cultural-events";
 
 export const programCategories: {
   title: EventCategory;
@@ -8,6 +11,7 @@ export const programCategories: {
   summary: string;
   description: string;
   image: string;
+  imageFit?: "cover" | "contain";
   objectives: string[];
 }[] = [
   {
@@ -18,7 +22,8 @@ export const programCategories: {
     summary: "Student-led reading sessions and thoughtful dialogue on literature, philosophy, and history.",
     description:
       "A forum for intellectual curiosity and critical exchange. Students gather weekly to deconstruct seminal texts in political thought, regional history, ethics, and mountain ecology, fostering a culture of rigorous student scholarship.",
-    image: "/images/events/study-circle.jpg",
+    image: studyCircleHighlights[0].image,
+    imageFit: "contain",
     objectives: [
       "Weekly reading circles anchored by student facilitators and peer discussions.",
       "Close readings of South Asian literature, regional historiography, and global thought.",
@@ -26,18 +31,18 @@ export const programCategories: {
     ],
   },
   {
-    title: "Workshop",
-    slug: "workshops-seminars",
-    href: "/events/workshops-seminars",
-    eyebrow: "Practical Skills & Academic Readiness",
-    summary: "Hands-on masterclasses covering academic writing, research methodology, and digital literacy.",
-    description:
-      "Bridging classroom learning with practical execution. GBSC workshops equip students with concrete competencies—from formatting thesis manuscripts and analyzing qualitative datasets to public discourse and professional career navigation.",
-    image: "/images/events/book-fair.jpg",
+    title: "Literary Society",
+    slug: "literary-society",
+    href: "/events/literary-society",
+    eyebrow: "Literature, Languages & Cultural Heritage",
+    summary: "A student initiative celebrating Gilgit-Baltistan’s literature, cultural heritage, and diverse linguistic traditions at QAU.",
+    description: literarySocietyInitiative.description,
+    image: literarySocietyImages[0].src,
+    imageFit: "contain",
     objectives: [
-      "Technical thesis writing and literature review formatting workshops.",
-      "Fellowship and scholarship application clinics for higher studies.",
-      "Digital research methodologies, citation ethics, and academic integrity.",
+      "Promote literature and meaningful intellectual exchange.",
+      "Celebrate Gilgit-Baltistan’s diverse languages and cultural heritage.",
+      "Provide a platform for student expression and literary identity.",
     ],
   },
   {
@@ -63,7 +68,8 @@ export const programCategories: {
     summary: "Celebrations of the varied languages, musical traditions, and living customs of Gilgit-Baltistan.",
     description:
       "Gilgit-Baltistan is a mosaic of distinct linguistic and cultural traditions—including Balti, Shina, Burushaski, Wakhi, Khowar, and Domaki. Our cultural programs offer a vibrant stage for musical performance, traditional attire, poetic recitations (Mushaira), and celebratory fraternity on campus.",
-    image: "/images/events/cultural-night.jpg",
+    image: poetryEvent.image,
+    imageFit: "contain",
     objectives: [
       "Annual Gilgit-Baltistan Cultural Evening featuring traditional rubab and sitar performances.",
       "Multilingual poetry gatherings celebrating regional literary heritage.",
@@ -109,17 +115,20 @@ export const eventsData: EventItem[] = [
   {
     id: "gbsc-id-2026",
     slug: "gilgit-baltistan-independence-day-2026",
-    title: "Gilgit-Baltistan Independence Day Celebration",
+    title: "Gilgit-Baltistan Independence Day 2026",
     category: "Cultural Event",
     summary:
-      "Marking the 79th anniversary of Gilgit-Baltistan's historic independence on November 1st, 1947 — a tribute to the scouts, soldiers, and people who shaped our identity.",
+      "Join GBSC QAU to celebrate Gilgit-Baltistan’s history, cultural heritage, and unity on the eve of 1 November. All Quaidians and QBIANS are welcome.",
     description:
-      "On November 1st, 1947, the people and scouts of Gilgit revolted against the Dogra rule in a bloodless revolution that would define the destiny of the region. GBSC-QAU invites all students to gather in commemoration — with cultural performances, historical recitations, traditional music, and community iftar.",
+      "GBSC QAU invites all Quaidians and QBIANS to an evening celebrating Gilgit-Baltistan’s liberation, cultural heritage, and shared identity.",
     status: "confirmed",
-    date: "Saturday, 1 November 2026",
-    time: "4:00 PM – 9:00 PM",
-    venue: "QAU Student Activity Centre",
-    image: "/images/events/cultural-night.jpg",
+    date: "Saturday, 31 October 2026",
+    startsAt: "2026-10-31T18:30:00+05:00",
+    time: "6:30 PM",
+    venue: "MFC Lawn, Quaid-i-Azam University, Islamabad",
+    image: "/images/events/independence-day/gb-independence-day-2026.jpeg",
+    imageAlt: "GBSC QAU poster for Gilgit-Baltistan Independence Day, Saturday 31 October 2026 at 6:30 PM, MFC Lawn",
+    imageFit: "contain",
     isFeatured: true,
     isHighlighted: true,
   },
@@ -153,21 +162,9 @@ export const eventsData: EventItem[] = [
     image: "/images/events/study-circle.jpg",
     isFeatured: false,
   },
-  {
-    id: "gbsc-sc-01",
-    slug: "inaugural-study-circle-mountain-histories",
-    title: "Study Circle: Decolonizing Mountain Historiography",
-    category: "Study Circle",
-    summary: "A peer discussion on early 20th-century travelogues and indigenous narratives of the Karakoram.",
-    description:
-      "This session reviews archival texts and oral histories from the northern valleys. We contrast colonial British geopolitical accounts with indigenous poetry, songs, and historical recollections from Gilgit and Baltistan.",
-    status: "past",
-    date: "Semester Archive",
-    venue: "Central Library Quadrangle, QAU",
-    image: "/images/events/study-circle.jpg",
-    facilitator: "Student Academic Forum",
-    isFeatured: true,
-  },
+  ...studyCircleHighlights,
+  literarySocietyInitiative,
+  poetryEvent,
   {
     id: "gbsc-ce-01",
     slug: "annual-cultural-heritage-symposium",

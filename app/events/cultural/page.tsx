@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, Music, Globe, Sparkles, Feather } from "lucide-react";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
+import { poetryEvent } from "@/content/cultural-events";
 
 export const metadata: Metadata = {
   title: "Cultural Life // Living Heritage",
@@ -58,25 +59,26 @@ export default function CulturalPage() {
           <div className="editorial-grid-2" style={{ alignItems: "center", marginBottom: "64px" }}>
             <div>
               <p className="eyebrow">
-                <span className="archive-tag tag-terracotta">LIVING EXPRESSION</span>
+                <span className="archive-tag tag-terracotta">PAST POETRY EVENT</span>
               </p>
-              <h2 style={{ marginBottom: "20px" }}>Preserving identity on a national university campus.</h2>
+              <h2 style={{ marginBottom: "20px" }}>{poetryEvent.title}</h2>
               <p style={{ fontSize: "1.05rem", lineHeight: 1.7, color: "var(--charcoal)", marginBottom: "16px" }}>
-                Students who travel from the Karakoram and Himalayan valleys bring with them cultural lineages
-                thousands of years in the making. GBSC-QAU provides a dignified, celebratory campus stage where
-                these languages, acoustic arts, and customs are shared with the broader university community.
+                {poetryEvent.summary}
               </p>
               <p style={{ color: "var(--muted)", lineHeight: 1.65, marginBottom: "24px" }}>
-                Our cultural gatherings are not merely commemorative events—they are vital spaces of belonging.
-                They offer comfort to homesick freshmen, foster inter-regional harmony among students of all provinces,
-                and assert the living presence of northern cultures in the federal capital.
+                {poetryEvent.date} · {poetryEvent.time}<br />
+                {poetryEvent.venue}
               </p>
               <Link href="/gallery" className="button button-primary">
                 View Cultural Archive Gallery <ArrowUpRight size={16} />
               </Link>
             </div>
 
-            <div
+            <a
+              href={poetryEvent.image}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View the full Bazm-e-Sukhan poster (opens in a new tab)"
               style={{
                 position: "relative",
                 borderRadius: "var(--radius-md)",
@@ -86,28 +88,14 @@ export default function CulturalPage() {
               }}
             >
               <Image
-                src="/images/events/cultural-night.jpg"
-                alt="Students in traditional attire participating in cultural night musical performance"
-                width={700}
-                height={450}
+                src={poetryEvent.image}
+                alt={poetryEvent.imageAlt}
+                width={poetryEvent.imageWidth}
+                height={poetryEvent.imageHeight}
+                sizes="(max-width: 768px) 100vw, 50vw"
                 style={{ width: "100%", height: "auto", display: "block" }}
               />
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  padding: "16px 20px",
-                  background: "linear-gradient(to top, rgba(6,18,29,0.92), transparent)",
-                  color: "var(--surface)",
-                  fontSize: "0.78rem",
-                  fontFamily: "var(--mono)",
-                }}
-              >
-                GBSC CULTURAL NIGHT // ACOUSTIC INSTRUMENT ARCHIVE
-              </div>
-            </div>
+            </a>
           </div>
 
           <div className="editorial-grid-2" style={{ gap: "24px" }}>

@@ -7,15 +7,15 @@ import { Calendar, Clock, MapPin, ArrowUpRight, ChevronLeft, ChevronRight, Flag 
 import { eventsData } from "@/content/events";
 
 /* ── Countdown to a date string ──────────────────────────── */
-function useCountdown(dateStr: string) {
+function useCountdown(dateStr?: string) {
   const [diff, setDiff] = useState({ days: 0, hours: 0, mins: 0, secs: 0, past: false });
 
   useEffect(() => {
-    const target = new Date(dateStr).getTime();
+    const target = dateStr ? new Date(dateStr).getTime() : NaN;
     const tick = () => {
       const now = Date.now();
       const delta = target - now;
-      if (delta <= 0) {
+      if (!Number.isFinite(delta) || delta <= 0) {
         setDiff({ days: 0, hours: 0, mins: 0, secs: 0, past: true });
         return;
       }
@@ -69,12 +69,12 @@ export function EventShowcaseBanner() {
     startAuto();
   };
 
-  if (confirmed.length === 0) return null;
+  const event = confirmed[active] ?? confirmed[0];
+  const countdown = useCountdown(event?.startsAt);
 
-  const event = confirmed[active];
+  if (!event) return null;
+
   const isGBDay = event.isHighlighted && event.slug?.includes("independence");
-  // Countdown only for the GB Independence Day (fixed date)
-  const countdown = useCountdown("2026-11-01T16:00:00+05:00");
 
   return (
     <section className="ebs" aria-label="Upcoming Events Showcase">
@@ -156,8 +156,8 @@ export function EventShowcaseBanner() {
 
         {/* CTA */}
         <div className="ebs-actions">
-          <Link href="/events" className="ebs-btn-primary">
-            View All Events <ArrowUpRight size={15} />
+          <Link href={`/events#${event.slug}`} className="ebs-btn-primary">
+            View Event Details <ArrowUpRight size={15} />
           </Link>
           <Link href="/announcements" className="ebs-btn-ghost">
             Read Announcements
@@ -180,11 +180,11 @@ export function EventShowcaseBanner() {
       </div>
 
       {/* Right: Countdown (only for the special highlighted event) */}
-      {isGBDay && !countdown.past && (
+      {isGBDay && event.startsAt && !countdown.past && (
         <div className="ebs-countdown-panel">
           <div className="ebs-countdown-label">
             <span className="ebs-countdown-live" />
-            Countdown to Independence Day
+            Countdown to the Celebration
           </div>
           <div className="ebs-countdown-grid">
             <CountUnit value={countdown.days}  label="Days" />
@@ -196,7 +196,7 @@ export function EventShowcaseBanner() {
             <CountUnit value={countdown.secs}  label="Sec" />
           </div>
           <p className="ebs-countdown-sub">
-            79th Anniversary · November 1, 1947
+            {event.date} · {event.time}
           </p>
           <div className="ebs-countdown-border-glow" aria-hidden="true" />
         </div>
