@@ -2062,42 +2062,39 @@ p:last-child {
 .ebs {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 400px);
   align-items: stretch;
-  min-height: clamp(340px, 42vw, 520px);
+  background: #04131c;
   overflow: hidden;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Full-bleed background photo slider */
-.ebs-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+.ebs-visual {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  background: #020b12;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  min-width: 0;
+  max-width: 100%;
 }
 
-.ebs-bg-slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+.ebs-poster {
+  position: relative;
+  flex: 0 0 auto;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  height: auto;
+  min-height: 0;
+  max-height: 520px;
+  background: #020b12;
+  overflow: hidden;
 }
 
-.ebs-bg-slide--active {
-  opacity: 1;
-}
-
-.ebs-bg-mask {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(100deg,
-      rgba(4, 13, 20, 0.96) 0%,
-      rgba(4, 13, 20, 0.82) 35%,
-      rgba(4, 13, 20, 0.50) 60%,
-      rgba(4, 13, 20, 0.25) 100%),
-    linear-gradient(to bottom, rgba(4,13,20,0.4) 0%, transparent 40%, rgba(4,13,20,0.6) 100%);
-  z-index: 1;
+.ebs-poster img {
+  object-fit: contain !important;
+  object-position: center top !important;
 }
 
 /* Main content column */
@@ -2109,7 +2106,7 @@ p:last-child {
   justify-content: center;
   padding: clamp(36px, 5vw, 60px) clamp(28px, 5vw, 64px);
   color: #fff;
-  max-width: 720px;
+  max-width: none;
 }
 
 /* Top row: labels + nav */
@@ -2349,7 +2346,7 @@ p:last-child {
   border-radius: 3px;
 }
 
-/* ── Countdown Panel (right side) ─────────────────────── */
+/* ── Countdown Panel ──────────────────────────────────── */
 .ebs-countdown-panel {
   position: relative;
   z-index: 2;
@@ -2357,12 +2354,11 @@ p:last-child {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: clamp(28px, 4vw, 52px) clamp(24px, 4vw, 52px);
-  background: rgba(4, 13, 20, 0.6);
-  border-left: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  min-width: clamp(220px, 28vw, 340px);
+  padding: 22px 20px 26px;
+  background: #071820;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  min-width: unset;
+  width: 100%;
   text-align: center;
   overflow: hidden;
 }
@@ -2372,11 +2368,11 @@ p:last-child {
   align-items: center;
   gap: 8px;
   font-family: var(--mono);
-  font-size: 0.62rem;
+  font-size: 0.68rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(152, 186, 188, 0.7);
-  margin-bottom: 24px;
+  color: #c5e4e0;
+  margin-bottom: 16px;
 }
 
 .ebs-countdown-live {
@@ -2404,36 +2400,36 @@ p:last-child {
 
 .ebs-count-val {
   font-family: var(--display);
-  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-size: clamp(1.7rem, 3.2vw, 2.6rem);
   font-weight: 700;
   color: #fff;
   letter-spacing: -0.04em;
   line-height: 1;
-  /* Digit flip feel */
   display: block;
   min-width: 2ch;
   text-align: center;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: var(--radius-sm);
-  padding: 8px 10px;
+  padding: 10px 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
 }
 
 .ebs-count-label {
   font-family: var(--mono);
-  font-size: 0.56rem;
+  font-size: 0.62rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(152, 186, 188, 0.55);
+  color: #d7eee9;
 }
 
 .ebs-count-sep {
   font-family: var(--display);
-  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.8);
   line-height: 1;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   animation: colonBlink 1s step-end infinite;
 }
 
@@ -2444,23 +2440,11 @@ p:last-child {
 
 .ebs-countdown-sub {
   font-family: var(--mono);
-  font-size: 0.65rem;
-  color: rgba(166, 75, 53, 0.85);
+  font-size: 0.68rem;
+  color: #e8a090;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin: 0;
-}
-
-/* Decorative glow behind countdown */
-.ebs-countdown-border-glow {
-  position: absolute;
-  top: 50%;
-  left: -60px;
-  transform: translateY(-50%);
-  width: 120px;
-  height: 200px;
-  background: radial-gradient(ellipse, rgba(40, 94, 98, 0.25), transparent 70%);
-  pointer-events: none;
 }
 
 /* ── "Also Upcoming" right panel ─────────────────────── */
@@ -2470,11 +2454,11 @@ p:last-child {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(28px, 4vw, 52px) clamp(24px, 4vw, 40px);
-  background: rgba(4, 13, 20, 0.6);
-  border-left: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(16px);
-  min-width: clamp(200px, 22vw, 280px);
+  padding: 22px 20px 26px;
+  background: #071820;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  min-width: unset;
+  width: 100%;
 }
 
 .ebs-next-label {
@@ -3659,6 +3643,16 @@ p:last-child {
   .ebs {
     grid-template-columns: 1fr;
   }
+  .ebs-visual {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .ebs-poster {
+    min-height: 0;
+    max-height: none;
+    height: auto;
+    aspect-ratio: 4 / 5;
+  }
   .ebs-content {
     max-width: 100%;
     padding: clamp(28px, 6vw, 48px) clamp(20px, 5vw, 48px);
@@ -3666,9 +3660,9 @@ p:last-child {
   .ebs-countdown-panel,
   .ebs-next-panel {
     border-left: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
     min-width: unset;
-    padding: 28px clamp(20px, 5vw, 48px);
+    padding: 22px clamp(20px, 5vw, 48px) 26px;
   }
   .ebs-countdown-grid {
     justify-content: center;
@@ -3766,6 +3760,11 @@ p:last-child {
   .ebs-content {
     padding: 28px 16px;
   }
+  .ebs-poster {
+    min-height: 0;
+    max-height: 480px;
+    height: auto;
+  }
   .ebs-title {
     font-size: clamp(1.4rem, 7vw, 2rem) !important;
   }
@@ -3774,13 +3773,13 @@ p:last-child {
   }
   .ebs-countdown-panel,
   .ebs-next-panel {
-    padding: 24px 16px;
+    padding: 20px 16px 24px;
   }
   .ebs-count-val {
-    font-size: 1.8rem;
-    padding: 6px 8px;
+    font-size: 1.6rem;
+    padding: 8px 9px;
   }
-  .ebs-count-sep { font-size: 1.4rem; }
+  .ebs-count-sep { font-size: 1.3rem; }
   .ebs-meta-row { gap: 12px; }
 
   /* Hero xhero adjustments */
