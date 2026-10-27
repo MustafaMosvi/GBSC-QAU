@@ -78,145 +78,144 @@ export function EventShowcaseBanner() {
 
   return (
     <section className="ebs" aria-label="Upcoming Events Showcase">
-      {/* Background image layer */}
-      <div className="ebs-bg" aria-hidden="true">
-        {confirmed.map((ev, i) => (
-          <div key={ev.id} className={`ebs-bg-slide ${i === active ? "ebs-bg-slide--active" : ""}`}>
-            {ev.image && (
-              <Image
-                src={ev.image}
-                alt=""
-                fill
-                sizes="100vw"
-                style={{ objectFit: "cover", objectPosition: "center 30%" }}
-              />
+      {/* Ambient backdrop */}
+      <div className="ebs-ambient" aria-hidden="true" />
+
+      <div className="ebs-inner">
+        {/* Left: Event info */}
+        <div className="ebs-content">
+          {/* Top row */}
+          <div className="ebs-top-row">
+            <div className="ebs-label-group">
+              {isGBDay && (
+                <span className="ebs-flag-badge">
+                  <Flag size={12} />
+                  GB INDEPENDENCE DAY
+                </span>
+              )}
+              <span className="ebs-category-tag">{event.category}</span>
+              <span className="ebs-status-pill">
+                <span className="ebs-status-dot" />
+                CONFIRMED
+              </span>
+            </div>
+            {confirmed.length > 1 && (
+              <div className="ebs-nav-controls" aria-label="Browse events">
+                <button className="ebs-nav-btn" onClick={() => go(-1)} aria-label="Previous event">
+                  <ChevronLeft size={16} />
+                </button>
+                <span className="ebs-nav-counter">{active + 1} / {confirmed.length}</span>
+                <button className="ebs-nav-btn" onClick={() => go(1)} aria-label="Next event">
+                  <ChevronRight size={16} />
+                </button>
+              </div>
             )}
           </div>
-        ))}
-        <div className="ebs-bg-mask" />
-      </div>
 
-      {/* Left: Event info */}
-      <div className="ebs-content">
-        {/* Top row */}
-        <div className="ebs-top-row">
-          <div className="ebs-label-group">
-            {isGBDay && (
-              <span className="ebs-flag-badge">
-                <Flag size={12} />
-                GB INDEPENDENCE DAY
+          {/* Event title */}
+          <h2 className="ebs-title" key={event.id}>{event.title}</h2>
+
+          {/* Summary */}
+          <p className="ebs-summary">{event.summary}</p>
+
+          {/* Meta row */}
+          <div className="ebs-meta-row">
+            {event.date && (
+              <span className="ebs-meta-item">
+                <Calendar size={14} />
+                {event.date}
               </span>
             )}
-            <span className="ebs-category-tag">{event.category}</span>
-            <span className="ebs-status-pill">
-              <span className="ebs-status-dot" />
-              CONFIRMED
-            </span>
+            {event.time && (
+              <span className="ebs-meta-item">
+                <Clock size={14} />
+                {event.time}
+              </span>
+            )}
+            {event.venue && (
+              <span className="ebs-meta-item">
+                <MapPin size={14} />
+                {event.venue}
+              </span>
+            )}
           </div>
+
+          {/* CTA */}
+          <div className="ebs-actions">
+            <Link href={`/events#${event.slug}`} className="ebs-btn-primary">
+              View Event Details <ArrowUpRight size={15} />
+            </Link>
+            <Link href="/announcements" className="ebs-btn-ghost">
+              Read Announcements
+            </Link>
+          </div>
+
+          {/* Progress dots */}
           {confirmed.length > 1 && (
-            <div className="ebs-nav-controls" aria-label="Browse events">
-              <button className="ebs-nav-btn" onClick={() => go(-1)} aria-label="Previous event">
-                <ChevronLeft size={16} />
-              </button>
-              <span className="ebs-nav-counter">{active + 1} / {confirmed.length}</span>
-              <button className="ebs-nav-btn" onClick={() => go(1)} aria-label="Next event">
-                <ChevronRight size={16} />
-              </button>
+            <div className="ebs-dots">
+              {confirmed.map((_, i) => (
+                <button
+                  key={i}
+                  className={`ebs-dot ${i === active ? "ebs-dot--active" : ""}`}
+                  onClick={() => { setActive(i); startAuto(); }}
+                  aria-label={`Go to event ${i + 1}`}
+                  aria-pressed={i === active}
+                />
+              ))}
             </div>
           )}
         </div>
 
-        {/* Event title */}
-        <h2 className="ebs-title" key={event.id}>{event.title}</h2>
-
-        {/* Summary */}
-        <p className="ebs-summary">{event.summary}</p>
-
-        {/* Meta row */}
-        <div className="ebs-meta-row">
-          {event.date && (
-            <span className="ebs-meta-item">
-              <Calendar size={14} />
-              {event.date}
-            </span>
-          )}
-          {event.time && (
-            <span className="ebs-meta-item">
-              <Clock size={14} />
-              {event.time}
-            </span>
-          )}
-          {event.venue && (
-            <span className="ebs-meta-item">
-              <MapPin size={14} />
-              {event.venue}
-            </span>
-          )}
-        </div>
-
-        {/* CTA */}
-        <div className="ebs-actions">
-          <Link href={`/events#${event.slug}`} className="ebs-btn-primary">
-            View Event Details <ArrowUpRight size={15} />
-          </Link>
-          <Link href="/announcements" className="ebs-btn-ghost">
-            Read Announcements
-          </Link>
-        </div>
-
-        {/* Progress dots */}
-        {confirmed.length > 1 && (
-          <div className="ebs-dots" aria-hidden="true">
-            {confirmed.map((_, i) => (
-              <button
-                key={i}
-                className={`ebs-dot ${i === active ? "ebs-dot--active" : ""}`}
-                onClick={() => { setActive(i); startAuto(); }}
-                aria-label={`Go to event ${i + 1}`}
-              />
-            ))}
-          </div>
-        )}
-      </div>
-
-      {/* Right: Countdown (only for the special highlighted event) */}
-      {isGBDay && event.startsAt && !countdown.past && (
-        <div className="ebs-countdown-panel">
-          <div className="ebs-countdown-label">
-            <span className="ebs-countdown-live" />
-            Countdown to the Celebration
-          </div>
-          <div className="ebs-countdown-grid">
-            <CountUnit value={countdown.days}  label="Days" />
-            <div className="ebs-count-sep">:</div>
-            <CountUnit value={countdown.hours} label="Hrs" />
-            <div className="ebs-count-sep">:</div>
-            <CountUnit value={countdown.mins}  label="Min" />
-            <div className="ebs-count-sep">:</div>
-            <CountUnit value={countdown.secs}  label="Sec" />
-          </div>
-          <p className="ebs-countdown-sub">
-            {event.date} · {event.time}
-          </p>
-          <div className="ebs-countdown-border-glow" aria-hidden="true" />
-        </div>
-      )}
-
-      {/* For non-highlighted events: show a simple next-event card on the right */}
-      {!isGBDay && confirmed.length > 1 && (
-        <div className="ebs-next-panel">
-          <p className="ebs-next-label">Also Upcoming</p>
-          {confirmed.filter((_, i) => i !== active).slice(0, 2).map((ev) => (
-            <div key={ev.id} className="ebs-next-item">
-              <div className="ebs-next-dot" />
-              <div>
-                <span className="ebs-next-title">{ev.title}</span>
-                {ev.date && <span className="ebs-next-date">{ev.date}</span>}
+        {/* Right: poster + countdown */}
+        <div className="ebs-aside">
+          <figure className="ebs-media">
+            {confirmed.map((ev, i) => (
+              <div key={ev.id} className={`ebs-media-slide ${i === active ? "ebs-media-slide--active" : ""}`}>
+                {ev.image && (
+                  <Image
+                    src={ev.image}
+                    alt={i === active ? (ev.imageAlt ?? ev.title) : ""}
+                    fill
+                    sizes="(max-width: 1024px) 300px, 400px"
+                    style={{ objectFit: ev.imageFit ?? "cover" }}
+                  />
+                )}
               </div>
+            ))}
+          </figure>
+
+          {isGBDay && event.startsAt && !countdown.past ? (
+            <div className="ebs-countdown-panel">
+              <div className="ebs-countdown-label">
+                <span className="ebs-countdown-live" />
+                Countdown to the Celebration
+              </div>
+              <div className="ebs-countdown-grid">
+                <CountUnit value={countdown.days}  label="Days" />
+                <CountUnit value={countdown.hours} label="Hrs" />
+                <CountUnit value={countdown.mins}  label="Min" />
+                <CountUnit value={countdown.secs}  label="Sec" />
+              </div>
+              <p className="ebs-countdown-sub">
+                {event.date} · {event.time}
+              </p>
             </div>
-          ))}
+          ) : confirmed.length > 1 ? (
+            <div className="ebs-next-panel">
+              <p className="ebs-next-label">Also Upcoming</p>
+              {confirmed.filter((_, i) => i !== active).slice(0, 2).map((ev) => (
+                <div key={ev.id} className="ebs-next-item">
+                  <div className="ebs-next-dot" />
+                  <div>
+                    <span className="ebs-next-title">{ev.title}</span>
+                    {ev.date && <span className="ebs-next-date">{ev.date}</span>}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : null}
         </div>
-      )}
+      </div>
     </section>
   );
 }
