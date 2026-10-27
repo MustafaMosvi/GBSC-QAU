@@ -132,36 +132,6 @@ export const eventsData: EventItem[] = [
     isFeatured: true,
     isHighlighted: true,
   },
-  {
-    id: "gbsc-ce-2026",
-    slug: "cultural-evening-harmonies-2026",
-    title: "Cultural Evening: Harmonies of the Northern Valleys",
-    category: "Cultural Event",
-    summary:
-      "Annual cultural evening featuring Rubab recitals, Shina and Balti poetry, traditional attire, and student performances.",
-    description:
-      "An annual gathering bringing together students from across Quaid-i-Azam University to experience the acoustic heritage of the Rubab, Suranai, and Daf, alongside multilingual poetry recitations.",
-    status: "confirmed",
-    date: "November 2026",
-    venue: "QAU Auditorium",
-    image: "/images/events/cultural-night.jpg",
-    isFeatured: false,
-  },
-  {
-    id: "gbsc-sc-2026",
-    slug: "study-circle-mountain-ecology-2026",
-    title: "Study Circle: Climate & the Karakoram Cryosphere",
-    category: "Study Circle",
-    summary:
-      "A peer reading session exploring glaciology, climate change impacts, and indigenous ecological knowledge across the Hindu Kush–Himalayan range.",
-    description:
-      "Students gather to critically engage with research papers and field reports on glacier retreat, water security, and how mountain communities adapt to climate disruption.",
-    status: "confirmed",
-    date: "Late November 2026",
-    venue: "Central Library Seminar Room, QAU",
-    image: "/images/events/study-circle.jpg",
-    isFeatured: false,
-  },
   ...studyCircleHighlights,
   literarySocietyInitiative,
   poetryEvent,
