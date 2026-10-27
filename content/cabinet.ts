@@ -1,4 +1,4 @@
-import { CabinetMember } from "@/lib/types";
+import { CabinetMember, CabinetTierGroup } from "@/lib/types";
 
 export const chairmanMessageData = {
   isConfirmed: false, // Flag: Official verified name and photo to be supplied upon constitutional notification
@@ -6,7 +6,7 @@ export const chairmanMessageData = {
   eyebrow: "Chairman's Perspective // GBSC-QAU",
   role: "Chairman, Gilgit-Baltistan Student Council",
   institution: "Quaid-i-Azam University, Islamabad",
-  namePlaceholder: "Office of the Council Chairman",
+  namePlaceholder: "Adnan Jaffary",
   imagePlaceholder: "/images/branding/gbsc-logo.png",
   tenure: "Current Academic Session",
   quote:
@@ -21,6 +21,11 @@ export const chairmanMessageData = {
     "The official signed message and portrait of the elected council chairman will be updated upon formal executive ratification.",
 };
 
+/**
+ * @deprecated Legacy portfolio placeholders retained for older editorial
+ * surfaces. The current, named cabinet is exported below as
+ * `currentCabinetTiers` / `currentCabinetMembers`.
+ */
 export const cabinetMembersData: CabinetMember[] = [
   {
     id: "chair",
@@ -111,3 +116,183 @@ export const cabinetMembersData: CabinetMember[] = [
     ],
   },
 ];
+
+/* ============================================================================
+   CURRENT CABINET SHOWCASE
+   ----------------------------------------------------------------------------
+   IMAGE NAMING CHECKLIST — /public/GBSC_Cabinet_Pics/
+   Every portrait must use the exact lowercase, hyphenated file name below.
+   Keeping this list in sync with `currentCabinetTiers` is the source of truth.
+
+   Chairman                  Adnan Jaffary        adnan-jaffary.jpg
+   Senior Vice Chairman      Kamran Haider        kamran-haider.jpg
+   Vice Chairman             Tahar Zafar          tahar-zafar.jpg
+   General Secretary         Mubashir Shimshali   mubashir-shimshali.jpg
+   Joint Secretary           Zahir Aman           zahir-aman.jpg
+   Finance Secretary         Shazad Ali           shazad-ali.jpg
+   BS President              M Huzaifa            m-huzaifa.jpg
+   MSc Representative        Sartaj Ali           sartaj-ali.jpg
+   Information Secretary     Karar Ali            karar-ali.jpg
+   Media Secretary           Zeeshan              zeeshan.jpg
+   Spokesperson              Shabbir Ahmed        shabbir-ahmed.jpg
+   Legal Advisor             Vijdan               vijdan.jpg
+   Education Secretary       Wasi Ul Hassan       wasi-ul-hassan.jpg
+   Cultural Secretary        Muhammad Amin        muhammad-amin.jpg
+   Sports Secretary          Saif Ullah Baig      saif-ullah-baig.jpg
+   CC / Executive Member     Musavir Hussain      musavir-hussain.jpg
+
+   Note: "Media coordinator" refers to the same officer as the Media Secretary;
+   a single portrait (`zeeshan.jpg`) serves both references.
+   ========================================================================== */
+
+const CABINET_IMAGE_DIR = "/GBSC_Cabinet_Pics";
+
+export const currentCabinetTiers: CabinetTierGroup[] = [
+  {
+    id: "executive-leadership",
+    label: "Executive Leadership",
+    description:
+      "The principal offices holding the council's constitutional mandate, institutional voice, and executive direction.",
+    members: [
+      {
+        id: "adnan-jaffary",
+        name: "Adnan Jaffary",
+        role: "Chairman",
+        image: `${CABINET_IMAGE_DIR}/adnan-jaffary.jpg`,
+        searchAliases: ["chair"],
+        isChair: true,
+      },
+      {
+        id: "kamran-haider",
+        name: "Kamran Haider",
+        role: "Senior Vice Chairman",
+        image: `${CABINET_IMAGE_DIR}/kamran-haider.jpg`,
+        searchAliases: ["svc"],
+      },
+      {
+        id: "tahar-zafar",
+        name: "Tahar Zafar",
+        role: "Vice Chairman",
+        image: `${CABINET_IMAGE_DIR}/tahar-zafar.jpg`,
+        searchAliases: ["vc"],
+      },
+      {
+        id: "mubashir-shimshali",
+        name: "Mubashir Shimshali",
+        role: "General Secretary",
+        image: `${CABINET_IMAGE_DIR}/mubashir-shimshali.jpg`,
+        searchAliases: ["gs"],
+      },
+    ],
+  },
+  {
+    id: "core-secretariat",
+    label: "Core Secretariat",
+    description:
+      "The administrative core coordinating records, finance, official advocacy, and legal counsel.",
+    members: [
+      {
+        id: "zahir-aman",
+        name: "Zahir Aman",
+        role: "Joint Secretary",
+        image: `${CABINET_IMAGE_DIR}/zahir-aman.jpg`,
+        searchAliases: ["js"],
+      },
+      {
+        id: "shazad-ali",
+        name: "Shazad Ali",
+        role: "Finance Secretary",
+        image: `${CABINET_IMAGE_DIR}/shazad-ali.jpg`,
+        searchAliases: ["fs", "treasurer"],
+      },
+      {
+        id: "shabbir-ahmed",
+        name: "Shabbir Ahmed",
+        role: "Spokesperson",
+        image: `${CABINET_IMAGE_DIR}/shabbir-ahmed.jpg`,
+        searchAliases: ["spokes person", "press"],
+      },
+      {
+        id: "vijdan",
+        name: "Vijdan",
+        role: "Legal Advisor",
+        image: `${CABINET_IMAGE_DIR}/vijdan.jpg`,
+        searchAliases: ["legal"],
+      },
+    ],
+  },
+  {
+    id: "departmental-secretaries",
+    label: "Wing & Departmental Secretaries",
+    description:
+      "Secretaries leading information, media, education, culture, and sports across the student community.",
+    members: [
+      {
+        id: "karar-ali",
+        name: "Karar Ali",
+        role: "Information Secretary",
+        image: `${CABINET_IMAGE_DIR}/karar-ali.jpg`,
+        searchAliases: ["info"],
+      },
+      {
+        id: "zeeshan",
+        name: "Zeeshan",
+        role: "Media Secretary",
+        image: `${CABINET_IMAGE_DIR}/zeeshan.jpg`,
+        searchAliases: ["media coordinator"],
+      },
+      {
+        id: "wasi-ul-hassan",
+        name: "Wasi Ul Hassan",
+        role: "Education Secretary",
+        image: `${CABINET_IMAGE_DIR}/wasi-ul-hassan.jpg`,
+        searchAliases: ["academic"],
+      },
+      {
+        id: "muhammad-amin",
+        name: "Muhammad Amin",
+        role: "Cultural Secretary",
+        image: `${CABINET_IMAGE_DIR}/muhammad-amin.jpg`,
+        searchAliases: ["culture", "heritage"],
+      },
+      {
+        id: "saif-ullah-baig",
+        name: "Saif Ullah Baig",
+        role: "Sports Secretary",
+        image: `${CABINET_IMAGE_DIR}/saif-ullah-baig.jpg`,
+        searchAliases: ["sport"],
+      },
+    ],
+  },
+  {
+    id: "student-body",
+    label: "Student Body & Executive Members",
+    description:
+      "Student-body representatives and executive members connecting the cabinet to every academic cohort.",
+    members: [
+      {
+        id: "m-huzaifa",
+        name: "M Huzaifa",
+        role: "BS President",
+        image: `${CABINET_IMAGE_DIR}/m-huzaifa.jpg`,
+        searchAliases: ["bachelor", "bs"],
+      },
+      {
+        id: "sartaj-ali",
+        name: "Sartaj Ali",
+        role: "MSc Representative",
+        image: `${CABINET_IMAGE_DIR}/sartaj-ali.jpg`,
+        searchAliases: ["msc", "ms", "master"],
+      },
+      {
+        id: "musavir-hussain",
+        name: "Musavir Hussain",
+        role: "CC / Executive Member",
+        image: `${CABINET_IMAGE_DIR}/musavir-hussain.jpg`,
+        searchAliases: ["cc", "coordinator", "executive"],
+      },
+    ],
+  },
+];
+
+export const currentCabinetMembers = currentCabinetTiers.flatMap((tier) => tier.members);

@@ -42,6 +42,7 @@ export const siteConfig = {
   primaryNav: [
     { label: "Home", href: "/" },
     { label: "About & Cabinet", href: "/about" },
+    { label: "Our Regions", href: "/regions" },
     { label: "Events & Programs", href: "/events" },
     { label: "Archive Gallery", href: "/gallery" },
     { label: "Contact", href: "/contact" },

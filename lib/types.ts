@@ -63,6 +63,31 @@ export interface CabinetMember {
   duties: string[];
 }
 
+export interface CabinetShowcaseMember {
+  id: string;
+  name: string;
+  role: string;
+  image: string;
+  /** Optional terms that should also match the cabinet search (e.g. abbreviations). */
+  searchAliases?: string[];
+  /** Marks the presiding officer for a distinct card treatment. */
+  isChair?: boolean;
+}
+
+export interface CabinetTierGroup {
+  id: string;
+  label: string;
+  description: string;
+  members: CabinetShowcaseMember[];
+}
+
+export interface RegionDivision {
+  id: string;
+  name: string;
+  description: string;
+  districts: string[];
+}
+
 export type GalleryCategory =
   | "All"
   | "Campus Life"
