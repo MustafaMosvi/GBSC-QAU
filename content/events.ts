@@ -53,7 +53,8 @@ export const programCategories: {
     summary: "Guest lectures and scholarly dialogues with visiting academics, writers, and community elders.",
     description:
       "Hosting prominent scholars, historians, and practitioners to discuss contemporary societal questions, climate challenges across the Karakoram-Himalayan cryosphere, and institutional developments in Gilgit-Baltistan.",
-    image: "/images/events/study-circle.jpg",
+    image: studyCircleHighlights[0].image,
+    imageFit: "contain",
     objectives: [
       "Keynote addresses by visiting researchers and QAU faculty members.",
       "Panels addressing environmental preservation, glaciology, and mountain communities.",
@@ -84,7 +85,8 @@ export const programCategories: {
     summary: "Campus book exhibits facilitating accessible literature, historical texts, and poetry.",
     description:
       "Organized on university walkways and library lawns to cultivate reading habits. Featuring curated stalls with regional publishers, historical reprints, philosophy classics, and student book exchange stalls.",
-    image: "/images/events/book-fair.jpg",
+    image: literarySocietyImages[0].src,
+    imageFit: "contain",
     objectives: [
       "Curated book stalls offering discounted academic and literary titles.",
       "Student-run book exchange tables fostering mutual reading circles.",
@@ -98,12 +100,13 @@ export const programCategories: {
     eyebrow: "Student Welfare & Mutual Aid",
     summary: "Orientation desks, hostel support, study groups, and community solidarity at QAU.",
     description:
-      "Day-to-day community support that ensures no student from the mountains feels isolated in the federal capital. From welcoming incoming freshmen to coordinating blood donation drives and hostel guidance.",
-    image: "/images/events/study-circle.jpg",
+      "Day-to-day community support that ensures no student from the mountains feels isolated in the federal capital. From welcoming incoming freshmen to coordinating peace fellowships and mutual aid.",
+    image: "/images/events/bayaakeaman-fellowship-gbsc.jpeg",
+    imageFit: "cover",
     objectives: [
       "Freshmen welcoming desks and campus orientation tours at the beginning of each semester.",
       "Hostel accommodation guidance and administrative navigation assistance.",
-      "Community welfare initiatives and mutual peer support networks.",
+      "Community welfare initiatives, peace dialogues, and mutual peer support networks.",
     ],
   },
 ];
@@ -146,7 +149,7 @@ export const eventsData: EventItem[] = [
     status: "past",
     date: "Annual Cultural Archive",
     venue: "QAU Student Activity Centre",
-    image: "/images/events/cultural-night.jpg",
+    image: poetryEvent.image,
     isFeatured: true,
   },
   {
@@ -160,7 +163,7 @@ export const eventsData: EventItem[] = [
     status: "past",
     date: "Academic Archive",
     venue: "Administration Lawn Promenade, QAU",
-    image: "/images/events/book-fair.jpg",
+    image: "/images/events/study-circles/gb-literary-society-2025-26.jpeg",
     isFeatured: true,
   },
 ];
