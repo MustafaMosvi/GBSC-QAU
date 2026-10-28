@@ -118,9 +118,9 @@ export const eventsData: EventItem[] = [
     title: "Gilgit-Baltistan Independence Day 2026",
     category: "Cultural Event",
     summary:
-      "Join GBSC QAU to celebrate Gilgit-Baltistan’s history, cultural heritage, and unity on the eve of 1 November. All Quaidians and QBIANS are welcome.",
+      "Join GBSC QAU to celebrate Gilgit-Baltistan’s history, cultural heritage, and unity on the eve of 1 November. All Quaidians and GBIANS are welcome.",
     description:
-      "GBSC QAU invites all Quaidians and QBIANS to an evening celebrating Gilgit-Baltistan’s liberation, cultural heritage, and shared identity.",
+      "GBSC QAU invites all Quaidians and GBIANS to an evening celebrating Gilgit-Baltistan’s liberation, cultural heritage, and shared identity.",
     status: "confirmed",
     date: "Saturday, 31 October 2026",
     startsAt: "2026-10-31T18:30:00+05:00",
