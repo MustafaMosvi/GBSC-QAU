@@ -46,7 +46,9 @@ function TechMemberCard({ member }: { member: TechnicalTeamMember }) {
       </div>
 
       <div className="cabinet-card-body tech-simple-body">
-        <span className="cabinet-card-role tech-simple-role">{member.role}</span>
+        {member.role ? (
+          <span className="cabinet-card-role tech-simple-role">{member.role}</span>
+        ) : null}
         <h2 className="cabinet-card-name tech-simple-name">{member.name}</h2>
       </div>
     </article>
