@@ -43,6 +43,7 @@ export const siteConfig = {
     { label: "Home", href: "/" },
     { label: "About & Cabinet", href: "/about" },
     { label: "Our Regions", href: "/regions" },
+    { label: "Technical Team", href: "/technical-team" },
     { label: "Events & Programs", href: "/events" },
     { label: "Archive Gallery", href: "/gallery" },
     { label: "Contact", href: "/contact" },

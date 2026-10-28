@@ -146,3 +146,30 @@ export interface HelpDeskTopic {
   universityOffice?: string;
   disclaimer?: string;
 }
+
+export interface TechnicalTeamMember {
+  id: string;
+  name: string;
+  role: string;
+  badge: string;
+  image: string;
+  affiliation: string;
+  department: string;
+  bio: string;
+  contributions: string[];
+  skills: string[];
+  isLead?: boolean;
+  socials?: {
+    github?: string;
+    linkedin?: string;
+    email?: string;
+  };
+}
+
+export interface TechArchitectureItem {
+  title: string;
+  category: string;
+  description: string;
+  iconName: string;
+}
+
