@@ -3,6 +3,201 @@ import { studyCircleHighlights } from "@/content/study-circles";
 import { literarySocietyImages, literarySocietyInitiative } from "@/content/literary-society";
 import { poetryEvent } from "@/content/cultural-events";
 
+export const campusLifeGalleryItems: GalleryItem[] = [
+  {
+    id: "gal-campus-life-01",
+    title: "Collegiate Dialogue on Campus Lawns",
+    caption:
+      "Students seated together on the lush green grounds of Quaid-i-Azam University, participating in informal peer exchange and academic discussions.",
+    category: "Campus Life",
+    src: "/images/campus-life/campus-life-01.jpeg",
+    alt: "Three university students sitting on the campus grass in front of stone steps and pine trees",
+    imageFit: "cover",
+    location: "Library Lawns, QAU Islamabad",
+    date: "Campus Archive",
+  },
+  {
+    id: "gal-campus-life-02",
+    title: "Peer Study Circle on the Lawns",
+    caption:
+      "An open-air study circle gathering on the university grounds, encouraging inclusive student participation and thoughtful discourse.",
+    category: "Campus Life",
+    src: "/images/campus-life/campus-life-02.jpeg",
+    alt: "Students sitting outdoors on the green lawn during a campus study circle",
+    imageFit: "cover",
+    location: "QAU Campus Grounds, Islamabad",
+    date: "Campus Archive",
+  },
+  {
+    id: "gal-campus-life-03",
+    title: "Bayaak Fellowship Facilitation Session",
+    caption:
+      "A student mentor facilitating an interactive session during the Bayaak-e-Aman Fellowship workshop conducted on campus.",
+    category: "Campus Life",
+    src: "/images/campus-life/campus-life-03.jpeg",
+    alt: "A facilitator speaking with notes in hand before an audience of students during a fellowship workshop",
+    imageFit: "cover",
+    location: "Student Activity Center, QAU",
+    date: "Fellowship Workshop",
+  },
+  {
+    id: "gal-campus-life-04",
+    title: "Reflective Dialogue & Perspectives",
+    caption:
+      "Students articulating their viewpoints during a collegiate circle on the campus grounds under the pine canopy.",
+    category: "Campus Life",
+    src: "/images/campus-life/campus-life-04.jpeg",
+    alt: "Students seated in an outdoor circle actively engaging in dialogue",
+    imageFit: "cover",
+    location: "QAU Campus, Islamabad",
+    date: "Campus Archive",
+  },
+  {
+    id: "gal-campus-life-05",
+    title: "Collaborative Student Brainstorming",
+    caption:
+      "Participants working in collaborative groups during a student workshop, drafting ideas and collective solutions.",
+    category: "Campus Life",
+    src: "/images/campus-life/campus-life-05.jpeg",
+    alt: "Male and female students drafting ideas and writing on paper during an interactive activity",
+    imageFit: "cover",
+    location: "QAU Campus, Islamabad",
+    date: "Workshop Session",
+  },
+  {
+    id: "gal-campus-life-06",
+    title: "Outdoor Student Assembly in the Woods",
+    caption:
+      "A full gathering of students arranged in a circle under the campus trees, sharing insights and community updates.",
+    category: "Campus Life",
+    src: "/images/campus-life/campus-life-06.jpeg",
+    alt: "Dozens of university students seated in a large circle of chairs on a campus clearing",
+    imageFit: "cover",
+    location: "Campus Amphitheatre Lawns, QAU",
+    date: "Campus Assembly",
+  },
+  {
+    id: "gal-campus-life-07",
+    title: "Youth Leadership Project Presentations",
+    caption:
+      "Group presentations by fellowship cohorts sharing their community initiatives and peace-building frameworks.",
+    category: "Campus Life",
+    src: "/images/campus-life/campus-life-07.jpeg",
+    alt: "Student cohorts presenting handwritten charts and project posters in front of a fellowship banner",
+    imageFit: "cover",
+    location: "QAU Campus, Islamabad",
+    date: "Fellowship Showcase",
+  },
+  {
+    id: "gal-campus-life-08",
+    title: "Community & Peace Project Presentation",
+    caption:
+      "Student representatives showcasing their collaborative presentation on peace, digital literacy, and youth dialogue.",
+    category: "Campus Life",
+    src: "/images/campus-life/campus-life-08.jpeg",
+    alt: "Students presenting an illustrated peace poster and discussion outline in front of an event backdrop",
+    imageFit: "cover",
+    location: "Student Activity Center, QAU",
+    date: "Workshop Presentation",
+  },
+  {
+    id: "gal-campus-life-09",
+    title: "Attentive Listeners in the Circle",
+    caption:
+      "Fellow students listening with focus during an outdoor academic and leadership development circle on campus.",
+    category: "Campus Life",
+    src: "/images/campus-life/campus-life-09.jpeg",
+    alt: "Students seated on the lawn listening thoughtfully to a speaker during an outdoor session",
+    imageFit: "cover",
+    location: "Library Lawns, QAU Islamabad",
+    date: "Campus Archive",
+  },
+  {
+    id: "gal-campus-life-10",
+    title: "The Mountain Student Circle at QAU",
+    caption:
+      "A large circle of students from Gilgit-Baltistan gathered under the open skies of Quaid-i-Azam University for dialogue and mutual fraternity.",
+    category: "Campus Life",
+    src: "/images/campus-life/campus-life-10.jpeg",
+    alt: "Wide shot of a large circle of students sitting together on the grass under towering trees",
+    imageFit: "cover",
+    location: "QAU Campus Grounds, Islamabad",
+    date: "Campus Assembly",
+  },
+  {
+    id: "gal-campus-life-11",
+    title: "Student Voice & Open Discussion",
+    caption:
+      "An open platform where students articulate their thoughts, challenges, and ideas in an unhurried, supportive environment.",
+    category: "Campus Life",
+    src: "/images/campus-life/campus-life-11.jpeg",
+    alt: "A student speaking with hand gestures to seated friends on the green grass",
+    imageFit: "cover",
+    location: "QAU Campus, Islamabad",
+    date: "Campus Archive",
+  },
+  {
+    id: "gal-campus-life-12",
+    title: "Conversations in the Shade of the Pines",
+    caption:
+      "Informal exchanges and friendships flourishing between lectures on the natural campus terrain of QAU.",
+    category: "Campus Life",
+    src: "/images/campus-life/campus-life-12.jpeg",
+    alt: "Three students seated together on the grass conversing under shade trees",
+    imageFit: "cover",
+    location: "QAU Campus, Islamabad",
+    date: "Campus Archive",
+  },
+  {
+    id: "gal-campus-life-13",
+    title: "Creative Expression & Problem Solving",
+    caption:
+      "Fellowship participants sharing their collective group presentation featuring creative poetry and collaborative problem solving.",
+    category: "Campus Life",
+    src: "/images/campus-life/campus-life-13.jpeg",
+    alt: "Fellowship participants holding a large chart with handwritten problem-solving notes and poetry",
+    imageFit: "cover",
+    location: "QAU Campus, Islamabad",
+    date: "Fellowship Workshop",
+  },
+  {
+    id: "gal-campus-life-14",
+    title: "Student Solidarity on Campus Grounds",
+    caption:
+      "A memorable group photograph capturing students from across Gilgit-Baltistan standing shoulder to shoulder on the QAU grounds.",
+    category: "Campus Life",
+    src: "/images/campus-life/campus-life-14.jpeg",
+    alt: "Large group of young students standing in a curved line on the campus lawn under tall trees",
+    imageFit: "cover",
+    location: "QAU Campus, Islamabad",
+    date: "Campus Archive",
+  },
+  {
+    id: "gal-campus-life-15",
+    title: "Bayaak-e-Aman Fellowship Cohort",
+    caption:
+      "The full cohort of students participating in the Bayaak-e-Aman youth leadership and community engagement fellowship.",
+    category: "Campus Life",
+    src: "/images/campus-life/campus-life-15.jpeg",
+    alt: "Large group of young men and women participants in traditional and modern attire standing together in front of pine trees",
+    imageFit: "cover",
+    location: "QAU Campus, Islamabad",
+    date: "Fellowship Cohort",
+  },
+  {
+    id: "gal-campus-life-16",
+    title: "Campus Workshop on Youth Empowerment",
+    caption:
+      "Students gathered in an outdoor courtyard for an empowering workshop on community dialogue, critical thinking, and leadership.",
+    category: "Campus Life",
+    src: "/images/campus-life/campus-life-16.jpeg",
+    alt: "Audience of students seated in red chairs outdoors facing a speaker and fellowship banner",
+    imageFit: "cover",
+    location: "Student Activity Center, QAU",
+    date: "Workshop Session",
+  },
+];
+
 export const galleryItemsData: GalleryItem[] = [
   {
     id: `gal-${poetryEvent.id}`,
@@ -92,4 +287,5 @@ export const galleryItemsData: GalleryItem[] = [
     location: "Attabad Lake, Gojal, Gilgit-Baltistan",
     date: "Landscape Archive",
   },
+  ...campusLifeGalleryItems,
 ];
