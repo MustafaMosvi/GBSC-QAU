@@ -77,10 +77,10 @@ export default function BookFairsPage() {
               }}
             >
               <Image
-                src="/images/events/book-fair.jpg"
+                src="/images/events/study-circles/gb-literary-society-2025-26.jpeg"
                 alt="Open-air campus book fair at Quaid-i-Azam University with students browsing tables"
-                width={700}
-                height={450}
+                width={1242}
+                height={1351}
                 style={{ width: "100%", height: "auto", display: "block" }}
               />
               <div
