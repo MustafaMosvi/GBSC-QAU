@@ -125,9 +125,9 @@ export const cabinetMembersData: CabinetMember[] = [
    Keeping this list in sync with `currentCabinetTiers` is the source of truth.
 
    Chairman                  Adnan Jaffary        adnan-jaffary.jpg
+   General Secretary         Mubashir Shimshali   mubashir-shimshali.jpg
    Senior Vice Chairman      Kamran Haider        kamran-haider.jpg
    Vice Chairman             Tahar Zafar          tahar-zafar.jpg
-   General Secretary         Mubashir Shimshali   mubashir-shimshali.jpg
    Joint Secretary           Zahir Aman           zahir-aman.jpg
    Finance Secretary         Shazad Ali           shazad-ali.jpg
    BS President              M Huzaifa            m-huzaifa.jpg
@@ -163,6 +163,13 @@ export const currentCabinetTiers: CabinetTierGroup[] = [
         isChair: true,
       },
       {
+        id: "mubashir-shimshali",
+        name: "Mubashir Shimshali",
+        role: "General Secretary",
+        image: `${CABINET_IMAGE_DIR}/mubashir-shimshali.jpg`,
+        searchAliases: ["gs"],
+      },
+      {
         id: "kamran-haider",
         name: "Kamran Haider",
         role: "Senior Vice Chairman",
@@ -175,13 +182,6 @@ export const currentCabinetTiers: CabinetTierGroup[] = [
         role: "Vice Chairman",
         image: `${CABINET_IMAGE_DIR}/tahar-zafar.jpg`,
         searchAliases: ["vc"],
-      },
-      {
-        id: "mubashir-shimshali",
-        name: "Mubashir Shimshali",
-        role: "General Secretary",
-        image: `${CABINET_IMAGE_DIR}/mubashir-shimshali.jpg`,
-        searchAliases: ["gs"],
       },
     ],
   },
