@@ -13,9 +13,9 @@ The `CabinetSection` component reads portraits from **`public/GBSC_Cabinet_Pics/
 | ✓ | Display name | Position | Tier | Required file | Public URL |
 |---|---|---|---|---|---|
 | [x] | Adnan Jaffary | Chairman | 1 — Executive Leadership | `adnan-jaffary.jpg` | `/GBSC_Cabinet_Pics/adnan-jaffary.jpg` |
+| [x] | Mubashir Shimshali | General Secretary | 1 — Executive Leadership | `mubashir-shimshali.jpg` | `/GBSC_Cabinet_Pics/mubashir-shimshali.jpg` |
 | [x] | Kamran Haider | Senior Vice Chairman | 1 — Executive Leadership | `kamran-haider.jpg` | `/GBSC_Cabinet_Pics/kamran-haider.jpg` |
 | [x] | Tahar Zafar | Vice Chairman | 1 — Executive Leadership | `tahar-zafar.jpg` | `/GBSC_Cabinet_Pics/tahar-zafar.jpg` |
-| [x] | Mubashir Shimshali | General Secretary | 1 — Executive Leadership | `mubashir-shimshali.jpg` | `/GBSC_Cabinet_Pics/mubashir-shimshali.jpg` |
 | [x] | Zahir Aman | Joint Secretary | 2 — Core Secretariat | `zahir-aman.jpg` | `/GBSC_Cabinet_Pics/zahir-aman.jpg` |
 | [x] | Shazad Ali | Finance Secretary | 2 — Core Secretariat | `shazad-ali.jpg` | `/GBSC_Cabinet_Pics/shazad-ali.jpg` |
 | [x] | Shabbir Ahmed | Spokesperson | 2 — Core Secretariat | `shabbir-ahmed.jpg` | `/GBSC_Cabinet_Pics/shabbir-ahmed.jpg` |

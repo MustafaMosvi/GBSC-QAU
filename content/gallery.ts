@@ -1,7 +1,7 @@
 import { GalleryItem } from "@/lib/types";
 import { studyCircleHighlights } from "@/content/study-circles";
 import { literarySocietyImages, literarySocietyInitiative } from "@/content/literary-society";
-import { poetryEvent } from "@/content/cultural-events";
+import { poetryEvent, jashnEMayfungEvent } from "@/content/cultural-events";
 
 export const campusLifeGalleryItems: GalleryItem[] = [
   {
@@ -200,6 +200,17 @@ export const campusLifeGalleryItems: GalleryItem[] = [
 
 export const galleryItemsData: GalleryItem[] = [
   {
+    id: `gal-${jashnEMayfungEvent.id}`,
+    title: "Jashn-e-Mayfung: Celebration of Culture & History",
+    caption: jashnEMayfungEvent.summary,
+    category: "Cultural Gatherings",
+    src: jashnEMayfungEvent.image,
+    alt: jashnEMayfungEvent.imageAlt,
+    imageFit: "contain",
+    location: "Quaid-i-Azam University, Islamabad",
+    date: "Cultural Celebration",
+  },
+  {
     id: `gal-${poetryEvent.id}`,
     title: poetryEvent.title,
     caption: poetryEvent.summary,
@@ -209,6 +220,18 @@ export const galleryItemsData: GalleryItem[] = [
     imageFit: poetryEvent.imageFit,
     location: poetryEvent.venue,
     date: poetryEvent.date,
+  },
+  {
+    id: "gal-gb-independence-day-2026",
+    title: "Gilgit-Baltistan Independence Day 2026",
+    caption:
+      "Commemorating the liberation, rich heritage, and cultural solidarity of Gilgit-Baltistan at Quaid-i-Azam University on the eve of 1 November.",
+    category: "Cultural Gatherings",
+    src: "/images/events/independence-day/gb-independence-day-2026.jpeg",
+    alt: "GBSC QAU poster for Gilgit-Baltistan Independence Day celebration",
+    imageFit: "contain",
+    location: "MFC Lawn, QAU Islamabad",
+    date: "Saturday, 31 October 2026",
   },
   ...studyCircleHighlights.map((record): GalleryItem => ({
     id: `gal-${record.id}`,
@@ -233,10 +256,46 @@ export const galleryItemsData: GalleryItem[] = [
     date: literarySocietyInitiative.date,
   })),
   {
+    id: "gal-chief-minister-meeting",
+    title: "GBSC Delegation Meeting with Chief Minister",
+    caption:
+      "GBSC executive council in dialogue with the Chief Minister of Gilgit-Baltistan, representing student welfare, academic rights, and regional development.",
+    category: "Campus Life",
+    src: "/images/hero/gbsc-chief-minister-meeting.jpeg",
+    alt: "GBSC council meeting with the Chief Minister of Gilgit-Baltistan",
+    imageFit: "cover",
+    location: "Islamabad",
+    date: "Advocacy Archive",
+  },
+  {
+    id: "gal-cabinet-assembly",
+    title: "GBSC Executive Cabinet Assembly (2025–2026)",
+    caption:
+      "Elected leadership and cabinet members of the Gilgit-Baltistan Student Council gathered at Quaid-i-Azam University.",
+    category: "Campus Life",
+    src: "/images/Cabinet_Group_pic/Group_pic.jpeg",
+    alt: "Group photograph of the GBSC-QAU executive cabinet for the 2025–2026 term",
+    imageFit: "cover",
+    location: "Quaid-i-Azam University, Islamabad",
+    date: "2025–2026 Term",
+  },
+  {
+    id: "gal-04",
+    title: "Campus Promenade Book & Reading Initiative",
+    caption:
+      "Open-air book and reading gatherings organized by GBSC students outside Dr. Raziuddin Siddiqi Memorial Library, featuring philosophy, regional history, and literature.",
+    category: "Book Fairs",
+    src: "/images/events/study-circles/gb-literary-society-2025-26.jpeg",
+    alt: "GBSC members gathered outside Dr. Raziuddin Siddiqi Memorial Library at QAU for the Literary Society and book reading initiative",
+    imageFit: "contain",
+    location: "Library Walkway, QAU Islamabad",
+    date: "Literary Archive",
+  },
+  {
     id: "gal-01",
     title: "The Karakoram Ridge at Dawn",
     caption:
-      "Sunrise across the high glaciated ridges of the Karakoram range, Gilgit-Baltistan. A reminder of the rugged terrain and enduring resilience of our home region.",
+      "Sunrise across the glaciated ridges of the Karakoram range, Gilgit-Baltistan. A symbol of the rugged terrain and enduring resilience of our home region.",
     category: "Heritage & Landscapes",
     src: "/images/hero/karakoram-hero.jpg",
     alt: "Majestic snow-dusted peaks and winding river valley in the Karakoram range, Gilgit-Baltistan",
@@ -244,37 +303,16 @@ export const galleryItemsData: GalleryItem[] = [
     date: "Landscape Archive",
   },
   {
-    id: "gal-03",
-    title: "Acoustic Harmony: The Cultural Night",
-    caption:
-      "A traditional rubab and sitar performance during the annual Gilgit-Baltistan cultural evening, accompanied by students wearing authentic feathered pakols.",
-    category: "Cultural Gatherings",
-    src: "/images/events/cultural-night.jpg",
-    alt: "Musician seated cross-legged playing traditional rubab string instrument surrounded by students in traditional woolen pakol caps",
-    location: "Student Activity Center, QAU",
-    date: "Cultural Archive",
-  },
-  {
-    id: "gal-04",
-    title: "Campus Promenade Book Exhibition",
-    caption:
-      "Open-air book tables along the campus walkway, featuring curated collections on mountain ecology, regional literature, philosophy, and history.",
-    category: "Book Fairs",
-    src: "/images/events/book-fair.jpg",
-    alt: "Outdoor campus book fair with wooden tables filled with books and students browsing under autumn trees",
-    location: "Library Walkway, QAU Islamabad",
-    date: "Literary Archive",
-  },
-  {
     id: "gal-05",
-    title: "Baltit Fort: Timber Masonry Heritage",
+    title: "Cartographic Heritage: Map of Gilgit-Baltistan",
     caption:
-      "Architectural documentation of historic Baltit Fort in Hunza Valley, showcasing traditional cribbage timber-and-stone construction and intricate woodwork.",
+      "Topographical and regional cartography illustrating the high mountain valleys, districts, and rivers across Gilgit-Baltistan.",
     category: "Heritage & Landscapes",
-    src: "/images/heritage/hunza-heritage.jpg",
-    alt: "Historic stone and carved timber architecture of Baltit Fort in Hunza Valley overlooking Karakoram peaks",
-    location: "Karimabad, Hunza, Gilgit-Baltistan",
-    date: "Heritage Archive",
+    src: "/images/GB_Map/GBmap.jpeg",
+    alt: "Detailed map of the geographical regions and districts of Gilgit-Baltistan",
+    imageFit: "contain",
+    location: "Gilgit-Baltistan",
+    date: "Cartographic Archive",
   },
   {
     id: "gal-06",

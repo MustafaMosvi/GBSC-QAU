@@ -1,7 +1,7 @@
 import { EventItem, EventCategory } from "@/lib/types";
 import { studyCircleHighlights } from "@/content/study-circles";
 import { literarySocietyImages, literarySocietyInitiative } from "@/content/literary-society";
-import { poetryEvent } from "@/content/cultural-events";
+import { poetryEvent, jashnEMayfungEvent } from "@/content/cultural-events";
 
 export const programCategories: {
   title: EventCategory;
@@ -72,7 +72,7 @@ export const programCategories: {
     image: poetryEvent.image,
     imageFit: "contain",
     objectives: [
-      "Annual Gilgit-Baltistan Cultural Evening featuring traditional rubab and sitar performances.",
+      "Annual celebrations including Jashn-e-Mayfung and Cultural Evenings featuring traditional rubab, dance, and folk arts.",
       "Multilingual poetry gatherings celebrating regional literary heritage.",
       "Exhibits of indigenous textile crafts, architecture, and ancestral memory.",
     ],
@@ -135,6 +135,7 @@ export const eventsData: EventItem[] = [
     isFeatured: true,
     isHighlighted: true,
   },
+  jashnEMayfungEvent,
   ...studyCircleHighlights,
   literarySocietyInitiative,
   poetryEvent,

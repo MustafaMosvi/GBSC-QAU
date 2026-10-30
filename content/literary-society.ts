@@ -12,10 +12,10 @@ export const literarySocietyImages = [
   {
     id: "literary-society-members-2025-26",
     title: "GBSC QAU Cabinet 2025–26",
-    src: "/images/literary-society/literary-society-members-2025-26.jpeg",
-    alt: "Group photograph outside Dr. Raziuddin Siddiqi Memorial Library at QAU, shared for the Literary Society initiative",
-    width: 1242,
-    height: 790,
+    src: "/images/Cabinet_Group_pic/Group_pic.jpeg",
+    alt: "Group photograph of the GBSC QAU Cabinet at Quaid-i-Azam University, shared for the Literary Society initiative",
+    width: 1229,
+    height: 1600,
   },
   {
     id: "literary-society-initiative-2025-26",
